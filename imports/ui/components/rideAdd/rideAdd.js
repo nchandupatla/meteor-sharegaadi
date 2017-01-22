@@ -14,6 +14,9 @@ class RideAdd {
   submit() {
     this.ride.owner = Meteor.userId();
     this.ride.public=true;
+
+    //console.log('loc obj '+JSON.stringify(this.ride.chosenPlace))
+    //console.log('loc details '+JSON.stringify(this.ride.chosenPlaceDetails))
     Rides.insert(this.ride);
     this.reset();
   }

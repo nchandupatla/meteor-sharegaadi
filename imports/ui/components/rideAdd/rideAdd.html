@@ -1,27 +1,30 @@
 <form>
-  <label>
-    Ride Name:
-  </label>
-  <input type="text" ng-model="rideAdd.ride.name" />
-  <label>
-    Description:
-  </label>
-  <input type="text" ng-model="rideAdd.ride.description" />
    <label>
     From:
   </label>
-  <input type="text" ng-model="rideAdd.ride.fromLocation" />
+  <input ng-model="rideAdd.ride.fromLocation" details="rideAdd.ride.fromPlaceDetails" googleplace/>
+  <!--<input type="text" ng-model="rideAdd.ride.fromLocation" />-->
    <label>
     To:
   </label>
-  <input type="text" ng-model="rideAdd.ride.toLocation" />
+  <input ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace/>
+  <label>Start Date:</label>
+  <input type="date" class="datepicker" ng-model="rideAdd.ride.date">
   <label>
-    Public ride?
+    Price:
   </label>
- <input type="checkbox" ng-model="rideAdd.ride.public">
-  <!--<input ng-model="chosenPlace" details="chosenPlaceDetails" googleplace/>-->
+  <input type="text" ng-model="rideAdd.ride.price" />
 
- 
-  <button ng-click="rideAdd.submit()">Add Ride!</button>
+  <label>
+    Details (Optional):
+  </label>
+  <input type="text" ng-model="rideAdd.ride.description" />
+  
+  <!--<input type="text" ng-model="rideAdd.ride.toLocation" />-->
+  
+  <!--<input ng-model="rideAdd.ride.chosenPlace" details="rideAdd.ride.chosenPlaceDetails" googleplace/>-->
+
+ <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()">Add Ride!</a>
+  <!--<button ng-click="rideAdd.submit()">Add Ride!</button>-->
   <button ui-sref="rides">Back</button>
 </form>
