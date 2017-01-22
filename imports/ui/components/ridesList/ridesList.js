@@ -21,7 +21,7 @@ class RidesList {
     this.perPage = 3;
     this.page = 1;
     this.sort = {
-      name: 1
+      fromLocation: 1
     };
     this.searchText = '';
 

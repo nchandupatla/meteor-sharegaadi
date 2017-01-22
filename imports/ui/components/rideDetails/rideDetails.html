@@ -2,6 +2,8 @@ The ride you selected is:
 <form>
   ride name: <input type="text" ng-model="rideDetails.ride.name" ng-disabled="!rideDetails.isOwner"/>
   Description: <input type="text" ng-model="rideDetails.ride.description" ng-disabled="!rideDetails.isOwner"/>
+  From: <input type="text" ng-model="rideDetails.ride.fromLocation" ng-disabled="!rideDetails.isOwner"/>
+  Location: <input type="text" ng-model="rideDetails.ride.toLocation" ng-disabled="!rideDetails.isOwner"/>
   Public ride? <input type="checkbox" ng-model="rideDetails.ride.public" ng-disabled="!rideDetails.isOwner"/>
   <button ng-click="rideDetails.save()">Save</button>
 </form>

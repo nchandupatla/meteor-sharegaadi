@@ -37,7 +37,7 @@ if (Meteor.isServer) {
     };
 
     if (typeof searchString === 'string' && searchString.length) {
-      selector.name = {
+      selector.fromLocation = {
         $regex: `.*${searchString}.*`,
         $options : 'i'
       };

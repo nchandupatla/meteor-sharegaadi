@@ -5,16 +5,14 @@
 
 <input type="search" ng-model="ridesList.searchText" placeholder="Search" />
 
-<rides-sort on-change="ridesList.sortChanged(sort)" property="name" order="1"></rides-sort>
+<rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
 
 <ul>
   <li dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
     <a ui-sref="rideDetails({ rideId: ride._id })">
-      {{ride.name}}
+      {{ride.fromLocation}} to {{ride.toLocation}}
     </a>
     <p>{{ride.description}}</p>
-    
-
     <ride-creator ride="ride"></ride-creator>
   </li>
 </ul>
