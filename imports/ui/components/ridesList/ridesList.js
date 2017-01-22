@@ -33,6 +33,7 @@ class RidesList {
     ]);
 
     this.subscribe('users');
+    this.subscribe('userData');
 
     this.helpers({
       rides() {
@@ -62,6 +63,19 @@ class RidesList {
 
   sortChanged(sort) {
     this.sort = sort;
+  }
+
+  getServiceImageUrl(owner){
+         var user = Meteor.users.findOne(owner);
+         if (user && user.services && user.services.facebook && user.services.facebook.id){
+             return "http://graph.facebook.com/" + user.services.facebook.id + "/picture/?type=large";
+         }else{
+           return "";
+         }
+    }
+  
+  getUser(id){
+    return Meteor.users.findOne(id);
   }
 }
 

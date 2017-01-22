@@ -15,6 +15,10 @@ function DisplayNameFilter(user) {
     return user.emails[0].address;
   }
 
+  if(user.services && user.services.facebook){
+    return user.services.facebook.email;
+  }
+
   return user;
 }
 

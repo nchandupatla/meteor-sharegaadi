@@ -12,7 +12,7 @@
 
     <ul class="collection">
       <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
-        <img src="images/yuna.jpg" alt="" class="circle">
+        <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
         <a ui-sref="rideDetails({ rideId: ride._id })">
           <span class="title">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</span>
         </a>
@@ -26,7 +26,7 @@
         <span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
         <span ng-hide="!ride.rules.music" class="chip">Music</span>
         <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
-
+        <h6 class="right hide-on-med-and-down">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
       </li>
     </ul>
     <!--<ul>
