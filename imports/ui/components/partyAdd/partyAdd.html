@@ -1,0 +1,18 @@
+<form>
+  <label>
+    Party Name:
+  </label>
+  <input type="text" ng-model="partyAdd.party.name" />
+  <label>
+    Description:
+  </label>
+  <input type="text" ng-model="partyAdd.party.description" />
+  <label>
+    Public Party?
+  </label>
+ <input type="checkbox" ng-model="partyAdd.party.public">
+  <!--<input ng-model="chosenPlace" details="chosenPlaceDetails" googleplace/>-->
+
+ 
+  <button ng-click="partyAdd.submit()">Add Party!</button>
+</form>
