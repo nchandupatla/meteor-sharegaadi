@@ -1,5 +1,5 @@
 {
-  "name": "socially",
+  "name": "sharegaadi",
   "private": true,
   "scripts": {
     "start": "meteor run",

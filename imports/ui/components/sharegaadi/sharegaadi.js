@@ -2,13 +2,13 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
-import template from './socially.html';
+import template from './sharegaadi.html';
 import { name as RidesList } from '../ridesList/ridesList';
 import { name as RideDetails } from '../rideDetails/rideDetails';
 
-class Socially {}
+class Sharegaadi {}
 
-const name = 'socially';
+const name = 'sharegaadi';
 
 // create a module
 export default angular.module(name, [
@@ -20,7 +20,7 @@ export default angular.module(name, [
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: Socially
+  controller: Sharegaadi
 })
   .config(config)
   .run(run);

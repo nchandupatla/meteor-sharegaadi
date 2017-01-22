@@ -2,11 +2,11 @@ import angular from 'angular';
 //import 'materialize-css/dist/css/materialize.min.css'
 import { Meteor } from 'meteor/meteor';
 
-import { name as Socially } from '../imports/ui/components/socially/socially';
+import { name as Sharegaadi } from '../imports/ui/components/sharegaadi/sharegaadi';
 
 function onReady() {
   angular.bootstrap(document, [
-    Socially
+    Sharegaadi
   ], {
     strictDi: true
   });

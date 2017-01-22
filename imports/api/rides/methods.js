@@ -51,10 +51,10 @@ export function invite(rideId, userId) {
       Email.send({
         to,
         replyTo,
-        from: 'noreply@socially.com',
+        from: 'noreply@sharegaadi.com',
         subject: `ride: ${ride.title}`,
         text: `
-          Hey, I just invited you to ${ride.title} on Socially.
+          Hey, I just invited you to ${ride.title} on Sharegaadi.
           Come check it out: ${Meteor.absoluteUrl()}
         `
       });
