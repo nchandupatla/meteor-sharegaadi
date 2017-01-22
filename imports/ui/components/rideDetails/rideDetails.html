@@ -1,15 +1,15 @@
 The ride you selected is:
 <form>
-  ride name: <input type="text" ng-model="rideDetails.ride.name" ng-disabled="!rideDetails.isOwner"/>
-  Description: <input type="text" ng-model="rideDetails.ride.description" ng-disabled="!rideDetails.isOwner"/>
-  From: <input type="text" ng-model="rideDetails.ride.fromLocation" ng-disabled="!rideDetails.isOwner"/>
-  Location: <input type="text" ng-model="rideDetails.ride.toLocation" ng-disabled="!rideDetails.isOwner"/>
-  Public ride? <input type="checkbox" ng-model="rideDetails.ride.public" ng-disabled="!rideDetails.isOwner"/>
-  <button ng-click="rideDetails.save()">Save</button>
+  
+  <h4>{{rideDetails.ride.fromLocation.replace(', United States', '')}} to {{rideDetails.ride.toLocation.replace(', United States', '')}}</h4>
+  <p>Price: {{rideDetails.ride.price | currency:"$":0}}</p>
+ </p> Starting on: {{rideDetails.ride.date | date:'medium'}}</p>
+ </p> Addtional notes: {{rideDetails.ride.description}}</p>
+  
 </form>
 
 <button ui-sref="rides">Back</button>
 
 
 
-<ride-map location="rideDetails.ride.location"></ride-map>
+<ride-map location="location"></ride-map>

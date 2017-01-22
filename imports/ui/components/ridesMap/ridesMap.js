@@ -15,8 +15,28 @@ class RidesMap {
         latitude: 45,
         longitude: -73
       },
-      zoom: 8
+      zoom: 11
     };
+
+    this.markersr= [
+        {
+            id: 101,
+            latitude:  42.3349940452867,
+            longitude:-71.0363168884369
+        },    
+        {
+            id: 102,
+            latitude:  42.3563941755867,
+                  longitude:-71.0466168884469
+        }, {
+            id: 103,
+            latitude:   42.3753940755867,
+                  longitude:-71.0853168884369
+        }, {
+            id: 104,
+            latitude:  42.3684940856867,
+               longitude:-71.1273168884369
+        }]
   }
 }
 

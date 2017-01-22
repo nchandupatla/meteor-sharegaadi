@@ -33,7 +33,7 @@ export default angular.module(name, [
         },
         link: function(scope, element, attrs, model) {
             var options = {
-                types: [],
+                types: ['(cities)'],
                 componentRestrictions: {country: 'usa'}
             };
             scope.gPlace = new google.maps.places.Autocomplete(element[0], options);

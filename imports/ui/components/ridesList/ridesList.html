@@ -4,26 +4,32 @@
 </div>
 <br>
 <div class="row">
-      
-      <div class="col s6">
-<input type="search" ng-model="ridesList.searchText" placeholder="Search" />
 
+  <div class="col s6">
+    <input type="search" ng-model="ridesList.searchText" placeholder="Search" />
 
+    <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
 
-<rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
-
-<ul class="collection">
-    <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
-      <img src="images/yuna.jpg" alt="" class="circle">
-      <span class="title">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</span>
-      <p>{{ride.description}}</p> <br>
-      <a href="#!" class="secondary-content">
-        <!--<i class="material-icons">grade</i>-->
-        {{ride.price | currency:"$":0 }}
+    <ul class="collection">
+      <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
+        <img src="images/yuna.jpg" alt="" class="circle">
+        <a ui-sref="rideDetails({ rideId: ride._id })">
+          <span class="title">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</span>
         </a>
-    </li>
-</ul>
-<!--<ul>
+        <p>Estimated Start Time on {{ride.date | date:'medium'}}</p>
+        <p>{{ride.description}}</p> <br>
+        <a href="#!" class="secondary-content">
+          <!--<i class="material-icons">grade</i>-->
+          {{ride.price | currency:"$":0 }}
+        </a>
+
+        <span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
+        <span ng-hide="!ride.rules.music" class="chip">Music</span>
+        <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
+
+      </li>
+    </ul>
+    <!--<ul>
   <li dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
     <a ui-sref="rideDetails({ rideId: ride._id })">
       {{ride.fromLocation}} to {{ride.toLocation}}
@@ -33,13 +39,11 @@
   </li>
 </ul>-->
 
-<dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+    <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" class="right hide-on-med-and-down"></dir-pagination-controls>
 
 
-      </div>
-      <div class="col s6">
-        <rides-map rides="ridesList.rides"></rides-map>
-      </div>
-    </div>
-
-
+  </div>
+  <div class="col s6">
+    <rides-map rides="ridesList.rides"></rides-map>
+  </div>
+</div>

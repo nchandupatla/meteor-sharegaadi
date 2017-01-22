@@ -9,6 +9,7 @@ import { Rides } from '../../../api/rides';
 class RideAdd {
   constructor() {
     this.ride = {};
+    this.ride.rules={};
   }
 
   submit() {

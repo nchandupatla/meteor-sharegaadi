@@ -1,30 +1,44 @@
-<form>
+
+<form name="myForm">
    <label>
     From:
   </label>
-  <input ng-model="rideAdd.ride.fromLocation" details="rideAdd.ride.fromPlaceDetails" googleplace/>
+  <input name="fromLocation" ng-model="rideAdd.ride.fromLocation" details="rideAdd.ride.fromPlaceDetails" googleplace required/>
   <!--<input type="text" ng-model="rideAdd.ride.fromLocation" />-->
    <label>
     To:
   </label>
-  <input ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace/>
+  <input ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace required/>
   <label>Start Date:</label>
-  <input type="date" class="datepicker" ng-model="rideAdd.ride.date">
+  <input type="datetime-local" ng-model="rideAdd.ride.date" required>
   <label>
     Price:
   </label>
-  <input type="text" ng-model="rideAdd.ride.price" />
+  <input type="text" ng-model="rideAdd.ride.price" required />
 
   <label>
     Details (Optional):
   </label>
   <input type="text" ng-model="rideAdd.ride.description" />
+  <label>Car Rules</label>
+  <p>
+      <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
+      <label for="filled-in-box1">Smoking</label>
+    </p>
+    <p>
+      <input type="checkbox" class="filled-in" id="filled-in-box2" ng-model="rideAdd.ride.rules.foodDrinks" />
+      <label for="filled-in-box2">Food & Drinks</label>
+    </p>
+    <p>
+      <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
+      <label for="filled-in-box3">Music</label>
+    </p>
   
   <!--<input type="text" ng-model="rideAdd.ride.toLocation" />-->
   
   <!--<input ng-model="rideAdd.ride.chosenPlace" details="rideAdd.ride.chosenPlaceDetails" googleplace/>-->
 
- <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()">Add Ride!</a>
+ <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()" ng-disabled="!myForm.fromLocation.$valid">Add Ride!</a>
   <!--<button ng-click="rideAdd.submit()">Add Ride!</button>-->
   <button ui-sref="rides">Back</button>
 </form>

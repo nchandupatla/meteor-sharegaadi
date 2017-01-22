@@ -19,6 +19,12 @@ class RideDetails {
     this.subscribe('rides');
     this.subscribe('users');
 
+    this.location=[{
+            id: 101,
+            latitude:  42.3563941755867,
+            longitude:-71.0363168884369
+        }];
+
     this.helpers({
       ride() {
         return Rides.findOne({
@@ -41,32 +47,6 @@ class RideDetails {
     });
   }
 
-  canInvite() {
-    if (!this.ride) {
-      return false;
-    }
-
-    return !this.ride.public && this.ride.owner === Meteor.userId();
-  }
-
-  save() {
-    Rides.update({
-      _id: this.ride._id
-    }, {
-      $set: {
-        name: this.ride.name,
-        description: this.ride.description,
-        public: this.ride.public,
-        location: this.ride.location
-      }
-    }, (error) => {
-      if (error) {
-        console.log('Oops, unable to update the ride...');
-      } else {
-        console.log('Done!');
-      }
-    });
-  }
 }
 
 const name = 'rideDetails';
