@@ -3,10 +3,10 @@ import angularMeteor from 'angular-meteor';
 import 'angular-simple-logger';
 import 'angular-google-maps';
 
-import './partyMap.css';
-import template from './partyMap.html';
+import './rideMap.css';
+import template from './rideMap.html';
 
-class PartyMap {
+class RideMap {
   constructor($scope) {
     'ngInject';
 
@@ -45,7 +45,7 @@ class PartyMap {
   }
 }
 
-const name = 'partyMap';
+const name = 'rideMap';
 
 // create a module
 export default angular.module(name, [
@@ -58,5 +58,5 @@ export default angular.module(name, [
   bindings: {
     location: '='
   },
-  controller: PartyMap
+  controller: RideMap
 });

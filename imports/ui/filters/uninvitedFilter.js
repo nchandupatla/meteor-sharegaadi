@@ -3,14 +3,14 @@ import _ from 'underscore';
 
 const name = 'uninvitedFilter';
 
-function UninvitedFilter(users, party) {
-  if (!party) {
+function UninvitedFilter(users, ride) {
+  if (!ride) {
     return false;
   }
 
   return users.filter((user) => {
     // if not the owner and not invited
-    return user._id !== party.owner && !_.contains(party.invited, user._id);
+    return user._id !== ride.owner && !_.contains(ride.invited, user._id);
   });
 }
 

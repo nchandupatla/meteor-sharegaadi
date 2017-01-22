@@ -1,3 +1,3 @@
 import '../imports/startup/fixtures';
-import '../imports/api/parties';
+import '../imports/api/rides';
 import '../imports/api/users';

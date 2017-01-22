@@ -5,14 +5,14 @@ import utilsPagination from 'angular-utils-pagination';
 
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
-import template from './partiesList.html';
-import { Parties } from '../../../api/parties';
-import { name as PartiesSort } from '../partiesSort/partiesSort';
-import { name as PartiesMap } from '../partiesMap/partiesMap';
-import { name as PartyAdd } from '../partyAdd/partyAdd';
-import { name as PartyCreator } from '../partyCreator/partyCreator';
+import template from './ridesList.html';
+import { Rides } from '../../../api/rides';
+import { name as RidesSort } from '../ridesSort/ridesSort';
+import { name as RidesMap } from '../ridesMap/ridesMap';
+import { name as RideAdd } from '../rideAdd/rideAdd';
+import { name as RideCreator } from '../rideCreator/rideCreator';
 
-class PartiesList {
+class RidesList {
   constructor($scope, $reactive) {
     'ngInject';
 
@@ -25,7 +25,7 @@ class PartiesList {
     };
     this.searchText = '';
 
-    this.subscribe('parties', () => [{
+    this.subscribe('rides', () => [{
         limit: parseInt(this.perPage),
         skip: parseInt((this.getReactively('page') - 1) * this.perPage),
         sort: this.getReactively('sort')
@@ -35,13 +35,13 @@ class PartiesList {
     this.subscribe('users');
 
     this.helpers({
-      parties() {
-        return Parties.find({}, {
+      rides() {
+        return Rides.find({}, {
           sort : this.getReactively('sort')
         });
       },
-      partiesCount() {
-        return Counts.get('numberOfParties');
+      ridesCount() {
+        return Counts.get('numberOfRides');
       },
       isLoggedIn() {
         return !!Meteor.userId();
@@ -52,8 +52,8 @@ class PartiesList {
     });
   }
 
-  isOwner(party) {
-    return this.isLoggedIn && party.owner === this.currentUserId;
+  isOwner(ride) {
+    return this.isLoggedIn && ride.owner === this.currentUserId;
   }
 
   pageChanged(newPage) {
@@ -65,29 +65,29 @@ class PartiesList {
   }
 }
 
-const name = 'partiesList';
+const name = 'ridesList';
 
 // create a module
 export default angular.module(name, [
   angularMeteor,
   uiRouter,
   utilsPagination,
-  PartiesSort,
-  PartiesMap,
-  PartyAdd,
-  PartyCreator,
+  RidesSort,
+  RidesMap,
+  RideAdd,
+  RideCreator,
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: PartiesList
+  controller: RidesList
 })
   .config(config);
 
 function config($stateProvider) {
   'ngInject';
   $stateProvider
-    .state('parties', {
-      url: '/parties',
-      template: '<parties-list></parties-list>'
+    .state('rides', {
+      url: '/rides',
+      template: '<rides-list></rides-list>'
     });
 }

@@ -3,8 +3,8 @@ import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
 import template from './socially.html';
-import { name as PartiesList } from '../partiesList/partiesList';
-import { name as PartyDetails } from '../partyDetails/partyDetails';
+import { name as RidesList } from '../ridesList/ridesList';
+import { name as RideDetails } from '../rideDetails/rideDetails';
 
 class Socially {}
 
@@ -14,8 +14,8 @@ const name = 'socially';
 export default angular.module(name, [
   angularMeteor,
   uiRouter,
-  PartiesList,
-  PartyDetails,
+  RidesList,
+  RideDetails,
   'accounts.ui'
 ]).component(name, {
   template,
@@ -53,7 +53,7 @@ function config($locationProvider, $urlRouterProvider, $qProvider) {
 
   $locationProvider.html5Mode(true);
 
-  $urlRouterProvider.otherwise('/parties');
+  $urlRouterProvider.otherwise('/rides');
 
   $qProvider.errorOnUnhandledRejections(false);
 }
@@ -64,7 +64,7 @@ function run($rootScope, $state) {
   $rootScope.$on('$stateChangeError',
     (event, toState, toParams, fromState, fromParams, error) => {
       if (error === 'AUTH_REQUIRED') {
-        $state.go('parties');
+        $state.go('rides');
       }
     }
   );

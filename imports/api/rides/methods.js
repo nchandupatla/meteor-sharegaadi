@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Email } from 'meteor/email';
 
-import { Parties } from './collection';
+import { Rides } from './collection';
 
 function getContactEmail(user) {
   if (user.emails && user.emails.length)
@@ -15,30 +15,30 @@ function getContactEmail(user) {
   return null;
 }
 
-export function invite(partyId, userId) {
-  check(partyId, String);
+export function invite(rideId, userId) {
+  check(rideId, String);
   check(userId, String);
 
   if (!this.userId) {
     throw new Meteor.Error(400, 'You have to be logged in!');
   }
 
-  const party = Parties.findOne(partyId);
+  const ride = Rides.findOne(rideId);
 
-  if (!party) {
-    throw new Meteor.Error(404, 'No such party!');
+  if (!ride) {
+    throw new Meteor.Error(404, 'No such ride!');
   }
 
-  if (party.owner !== this.userId) {
+  if (ride.owner !== this.userId) {
     throw new Meteor.Error(404, 'No permissions!');
   }
 
-  if (party.public) {
-    throw new Meteor.Error(400, 'That party is public. No need to invite people.');
+  if (ride.public) {
+    throw new Meteor.Error(400, 'That ride is public. No need to invite people.');
   }
 
-  if (userId !== party.owner && ! _.contains(party.invited, userId)) {
-    Parties.update(partyId, {
+  if (userId !== ride.owner && ! _.contains(ride.invited, userId)) {
+    Rides.update(rideId, {
       $addToSet: {
         invited: userId
       }
@@ -52,9 +52,9 @@ export function invite(partyId, userId) {
         to,
         replyTo,
         from: 'noreply@socially.com',
-        subject: `PARTY: ${party.title}`,
+        subject: `ride: ${ride.title}`,
         text: `
-          Hey, I just invited you to ${party.title} on Socially.
+          Hey, I just invited you to ${ride.title} on Socially.
           Come check it out: ${Meteor.absoluteUrl()}
         `
       });
@@ -62,8 +62,8 @@ export function invite(partyId, userId) {
   }
 }
 
-export function rsvp(partyId, rsvp) {
-  check(partyId, String);
+export function rsvp(rideId, rsvp) {
+  check(rideId, String);
   check(rsvp, String);
 
   if (!this.userId) {
@@ -74,8 +74,8 @@ export function rsvp(partyId, rsvp) {
     throw new Meteor.Error(400, 'Invalid RSVP');
   }
 
-  const party = Parties.findOne({
-    _id: partyId,
+  const ride = Rides.findOne({
+    _id: rideId,
     $or: [{
       // is public
       $and: [{
@@ -106,17 +106,17 @@ export function rsvp(partyId, rsvp) {
     }]
   });
 
-  if (!party) {
-    throw new Meteor.Error(404, 'No such party');
+  if (!ride) {
+    throw new Meteor.Error(404, 'No such ride');
   }
 
-  const hasUserRsvp = _.findWhere(party.rsvps, {
+  const hasUserRsvp = _.findWhere(ride.rsvps, {
     user: this.userId
   });
 
   if (!hasUserRsvp) {
     // add new rsvp entry
-    Parties.update(partyId, {
+    Rides.update(rideId, {
       $push: {
         rsvps: {
           rsvp,
@@ -127,8 +127,8 @@ export function rsvp(partyId, rsvp) {
   } else {
     // update rsvp entry
     const userId = this.userId;
-    Parties.update({
-      _id: partyId,
+    Rides.update({
+      _id: rideId,
       'rsvps.user': userId
     }, {
       $set: {

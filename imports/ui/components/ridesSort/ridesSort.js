@@ -1,9 +1,9 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 
-import template from './partiesSort.html';
+import template from './ridesSort.html';
 
-class PartiesSort {
+class RidesSort {
   constructor($timeout) {
     'ngInject';
 
@@ -19,7 +19,7 @@ class PartiesSort {
   }
 }
 
-const name = 'partiesSort';
+const name = 'ridesSort';
 
 // create a module
 export default angular.module(name, [
@@ -32,5 +32,5 @@ export default angular.module(name, [
     order: '@'
   },
   controllerAs: name,
-  controller: PartiesSort
+  controller: RidesSort
 });

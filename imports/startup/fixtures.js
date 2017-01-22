@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
-import { Parties } from '../api/parties';
+import { Rides } from '../api/rides';
 
 Meteor.startup(() => {
-  if (Parties.find().count() === 0) {
-    const parties = [{
+  if (Rides.find().count() === 0) {
+    const rides = [{
       'name': 'Dubstep-Free Zone',
       'description': 'Fast just got faster with Nexus S.',
       'public':true
@@ -17,8 +17,8 @@ Meteor.startup(() => {
       'public':true
     }];
 
-    parties.forEach((party) => {
-      Parties.insert(party)
+    rides.forEach((ride) => {
+      Rides.insert(ride)
     });
   }
 });

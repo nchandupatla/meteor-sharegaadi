@@ -1,13 +1,13 @@
 import { Meteor } from 'meteor/meteor';
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
-import { Parties } from './collection';
+import { Rides } from './collection';
 
 if (Meteor.isServer) {
-  Meteor.publish('parties', function(options, searchString) {
+  Meteor.publish('rides', function(options, searchString) {
     const selector = {
       $or: [{
-        // the public parties
+        // the public rides
         $and: [{
           public: true
         }, {
@@ -43,10 +43,10 @@ if (Meteor.isServer) {
       };
     }
 
-    Counts.publish(this, 'numberOfParties', Parties.find(selector), {
+    Counts.publish(this, 'numberOfRides', Rides.find(selector), {
       noReady: true
     });
 
-    return Parties.find(selector, options);
+    return Rides.find(selector, options);
   });
 }

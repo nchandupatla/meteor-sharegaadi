@@ -4,25 +4,25 @@ import uiRouter from 'angular-ui-router';
 
 import { Meteor } from 'meteor/meteor';
 
-import template from './partyDetails.html';
-import { Parties } from '../../../api/parties';
-import { name as PartyMap } from '../partyMap/partyMap';
+import template from './rideDetails.html';
+import { Rides } from '../../../api/rides';
+import { name as RideMap } from '../rideMap/rideMap';
 
-class PartyDetails {
+class RideDetails {
   constructor($stateParams, $scope, $reactive) {
     'ngInject';
 
     $reactive(this).attach($scope);
 
-    this.partyId = $stateParams.partyId;
+    this.rideId = $stateParams.rideId;
 
-    this.subscribe('parties');
+    this.subscribe('rides');
     this.subscribe('users');
 
     this.helpers({
-      party() {
-        return Parties.findOne({
-          _id: $stateParams.partyId
+      ride() {
+        return Rides.findOne({
+          _id: $stateParams.rideId
         });
       },
       users() {
@@ -32,36 +32,36 @@ class PartyDetails {
         return !!Meteor.userId();
       },
       isOwner() {
-        if (!this.party) {
+        if (!this.ride) {
           return false;
         }
 
-        return this.party.owner === Meteor.userId();
+        return this.ride.owner === Meteor.userId();
       }
     });
   }
 
   canInvite() {
-    if (!this.party) {
+    if (!this.ride) {
       return false;
     }
 
-    return !this.party.public && this.party.owner === Meteor.userId();
+    return !this.ride.public && this.ride.owner === Meteor.userId();
   }
 
   save() {
-    Parties.update({
-      _id: this.party._id
+    Rides.update({
+      _id: this.ride._id
     }, {
       $set: {
-        name: this.party.name,
-        description: this.party.description,
-        public: this.party.public,
-        location: this.party.location
+        name: this.ride.name,
+        description: this.ride.description,
+        public: this.ride.public,
+        location: this.ride.location
       }
     }, (error) => {
       if (error) {
-        console.log('Oops, unable to update the party...');
+        console.log('Oops, unable to update the ride...');
       } else {
         console.log('Done!');
       }
@@ -69,26 +69,26 @@ class PartyDetails {
   }
 }
 
-const name = 'partyDetails';
+const name = 'rideDetails';
 
 // create a module
 export default angular.module(name, [
   angularMeteor,
   uiRouter,
-  PartyMap
+  RideMap
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: PartyDetails
+  controller: RideDetails
 })
   .config(config);
 
 function config($stateProvider) {
   'ngInject';
 
-  $stateProvider.state('partyDetails', {
-    url: '/parties/:partyId',
-    template: '<party-details></party-details>',
+  $stateProvider.state('rideDetails', {
+    url: '/rides/:rideId',
+    template: '<ride-details></ride-details>',
     resolve: {
       currentUser($q) {
         if (Meteor.userId() === null) {

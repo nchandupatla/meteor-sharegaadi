@@ -3,12 +3,12 @@ import angularMeteor from 'angular-meteor';
 import 'angular-simple-logger';
 import 'angular-google-maps';
 
-import template from './partiesMap.html';
+import template from './ridesMap.html';
 
 /**
- * PartiesMap component
+ * ridesMap component
  */
-class PartiesMap {
+class RidesMap {
   constructor() {
     this.map = {
       center: {
@@ -20,7 +20,7 @@ class PartiesMap {
   }
 }
 
-const name = 'partiesMap';
+const name = 'ridesMap';
 
 // create a module
 export default angular.module(name, [
@@ -31,7 +31,7 @@ export default angular.module(name, [
   template,
   controllerAs: name,
   bindings: {
-    parties: '='
+    rides: '='
   },
-  controller: PartiesMap
+  controller: RidesMap
 });

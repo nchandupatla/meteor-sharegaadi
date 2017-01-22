@@ -3,13 +3,13 @@ import angularMeteor from 'angular-meteor';
 
 import { Meteor } from 'meteor/meteor';
 
-import template from './partyCreator.html';
+import template from './rideCreator.html';
 import { name as DisplayNameFilter } from '../../filters/displayNameFilter';
 
 /**
- * PartyCreator component
+ * RideCreator component
  */
-class PartyCreator {
+class RideCreator {
   constructor($scope) {
     'ngInject';
 
@@ -19,11 +19,11 @@ class PartyCreator {
 
     this.helpers({
       creator() {
-        if (!this.party) {
+        if (!this.ride) {
           return '';
         }
 
-        const owner = this.party.owner;
+        const owner = this.ride.owner;
 
         if (Meteor.userId() !== null && owner === Meteor.userId()) {
           return 'me';
@@ -35,7 +35,7 @@ class PartyCreator {
   }
 }
 
-const name = 'partyCreator';
+const name = 'rideCreator';
 
 // create a module
 export default angular.module(name, [
@@ -45,7 +45,7 @@ export default angular.module(name, [
   template,
   controllerAs: name,
   bindings: {
-    party: '<'
+    ride: '<'
   },
-  controller: PartyCreator
+  controller: RideCreator
 });

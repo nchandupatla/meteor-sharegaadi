@@ -3,27 +3,27 @@ import angularMeteor from 'angular-meteor';
 
 import { Meteor } from 'meteor/meteor';
 
-import template from './partyAdd.html';
-import { Parties } from '../../../api/parties';
+import template from './rideAdd.html';
+import { Rides } from '../../../api/rides';
 
-class PartyAdd {
+class RideAdd {
   constructor() {
-    this.party = {};
+    this.ride = {};
   }
 
   submit() {
-    this.party.owner = Meteor.userId();
-    this.party.public=true;
-    Parties.insert(this.party);
+    this.ride.owner = Meteor.userId();
+    this.ride.public=true;
+    Rides.insert(this.ride);
     this.reset();
   }
 
   reset() {
-    this.party = {};
+    this.ride = {};
   }
 }
 
-const name = 'partyAdd';
+const name = 'rideAdd';
 
 // create a module
 export default angular.module(name, [
@@ -31,7 +31,7 @@ export default angular.module(name, [
 ]).component(name, {
   template,
   controllerAs: name,
-  controller: PartyAdd
+  controller: RideAdd
 })
 .config(config);
 
@@ -42,6 +42,6 @@ function config($stateProvider) {
       url: '/addRide',
       template: template,
       controllerAs: name,
-      controller: PartyAdd
+      controller: RideAdd
     });
 }
