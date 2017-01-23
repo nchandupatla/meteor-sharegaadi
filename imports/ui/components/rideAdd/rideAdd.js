@@ -10,6 +10,7 @@ class RideAdd {
   constructor() {
     this.ride = {};
     this.ride.rules={};
+    this.ride.contact={};
   }
 
   submit() {

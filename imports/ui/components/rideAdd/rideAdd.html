@@ -1,11 +1,10 @@
-
 <form name="myForm">
-   <label>
+  <label>
     From:
   </label>
   <input name="fromLocation" ng-model="rideAdd.ride.fromLocation" details="rideAdd.ride.fromPlaceDetails" googleplace required/>
   <!--<input type="text" ng-model="rideAdd.ride.fromLocation" />-->
-   <label>
+  <label>
     To:
   </label>
   <input ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace required/>
@@ -17,21 +16,37 @@
   <input type="text" ng-model="rideAdd.ride.price" required />
 
   <label>Car Rules</label><br>
-  
-      <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
-      <label for="filled-in-box1">Smoking</label>
-    
-      <input type="checkbox" class="filled-in" id="filled-in-box2" ng-model="rideAdd.ride.rules.foodDrinks" />
-      <label for="filled-in-box2">Food & Drinks</label>
-   
-      <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
-      <label for="filled-in-box3">Music</label>
-<br><br>
-<label>
+
+  <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
+  <label for="filled-in-box1">Smoking</label>
+
+  <input type="checkbox" class="filled-in" id="filled-in-box2" ng-model="rideAdd.ride.rules.foodDrinks" />
+  <label for="filled-in-box2">Food & Drinks</label>
+
+  <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
+  <label for="filled-in-box3">Music</label>
+  <br><br>
+  <label>Preferred method of contact</label><br>
+  <input class="with-gap" name="group3" type="radio" id="test5" checked />
+  <label for="test5">mobile</label>
+  <input class="with-gap" name="group3" type="radio" id="test6" checked />
+  <label for="test6">email</label>
+  <input class="with-gap" name="group3" type="radio" id="test7" checked />
+  <label for="test7">mobile and email</label>
+  <br><br>
+  <label>
+    Email:
+  </label>
+  <input type="text" ng-model="rideAdd.ride.contact.email" required />
+  <label>
+    Mobile:
+  </label>
+  <input type="text" ng-model="rideAdd.ride.contact.mobile" required />
+    <br><br>
     Addtional Notes (Optional):
   </label>
   <textarea id="textarea1" class="materialize-textarea" ng-model="rideAdd.ride.description"></textarea>
-<br>
+  <br>
   <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()" ng-disabled="!myForm.fromLocation.$valid">Add Ride!</a>
   <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
 </form>

@@ -45,8 +45,11 @@ class RideDetails {
         return this.ride.owner === Meteor.userId();
       }
     });
+  
   }
-
+   getUser(id){
+    return Meteor.users.findOne(id);
+  }
 }
 
 const name = 'rideDetails';

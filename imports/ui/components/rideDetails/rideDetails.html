@@ -1,15 +1,16 @@
-The ride you selected is:
 <form>
   
   <h4>{{rideDetails.ride.fromLocation.replace(', United States', '')}} to {{rideDetails.ride.toLocation.replace(', United States', '')}}</h4>
   <p>Price: {{rideDetails.ride.price | currency:"$":0}}</p>
- </p> Starting on: {{rideDetails.ride.date | date:'medium'}}</p>
- </p> Addtional notes: {{rideDetails.ride.description}}</p>
-  
+  <p> Starting on: {{rideDetails.ride.date | date:'medium'}}</p>
+  <p> Addtional notes: {{rideDetails.ride.description}}</p>
+  <p> Contact Name: {{rideDetails.getUser(rideDetails.ride.owner) | displayNameFilter}} </p>
+  <p> Contact Details: {{rideDetails.ride.contact.email}} {{rideDetails.ride.contact.mobile}} </p>
 </form>
 
-<button ui-sref="rides">Back</button>
+<br><br><br>
+<a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
 
 
-
+<br><br><br><br><br>
 <ride-map location="location"></ride-map>
