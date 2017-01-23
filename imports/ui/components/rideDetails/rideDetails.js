@@ -68,15 +68,6 @@ function config($stateProvider) {
 
   $stateProvider.state('rideDetails', {
     url: '/rides/:rideId',
-    template: '<ride-details></ride-details>',
-    resolve: {
-      currentUser($q) {
-        if (Meteor.userId() === null) {
-          return $q.reject('AUTH_REQUIRED');
-        } else {
-          return $q.resolve();
-        }
-      }
-    }
+    template: '<ride-details></ride-details>'
   });
 }
