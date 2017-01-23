@@ -95,14 +95,13 @@
         </a>
         <p>Estimated Start Time on {{ride.date | date:'medium'}}</p>
         <p>{{ride.description}}</p> <br>
+        <span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
+        <span ng-hide="!ride.rules.music" class="chip">Music</span>
+        <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
         <h4 class="secondary-content">
           <!--<i class="material-icons">grade</i>-->
           {{ride.price | currency:"$":0 }}
         </h4>
-
-        <span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
-        <span ng-hide="!ride.rules.music" class="chip">Music</span>
-        <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
         <h6 class="right hide-on-med-and-down">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
       </li>
     </ul>

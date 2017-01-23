@@ -14,7 +14,7 @@ constructor($scope, $reactive, $state) {
     'ngInject';
 
     this.$state = $state;
-
+    
     $reactive(this).attach($scope);
     this.subscribe('userData');
     
