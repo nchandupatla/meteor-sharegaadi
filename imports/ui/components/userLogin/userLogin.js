@@ -7,11 +7,11 @@ import template from './userLogin.html';
 
 
 class UserLogin {
-  constructor($stateParams, $scope, $reactive) {
+  constructor($stateParams, $scope, $reactive, $state) {
     'ngInject';
 
     $reactive(this).attach($scope);
-    this.test='hello';
+    this.$state = $state;
   }
 
     facebookLogin() {

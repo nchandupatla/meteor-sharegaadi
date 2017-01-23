@@ -1,11 +1,21 @@
+
 <nav >
   <div class="nav-wrapper">
     <a href="/" class="brand-logo center"><h4>Sharegaadi</h4> the new desi portal</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-    <ul class="right hide-on-med-and-down">
-      <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
+      <ul class="right hide-on-med-and-down">
+      <li ng-hide="sharegaadi.isLoggedIn">
+        <a class="waves-effect waves-light btn" ui-sref="login">Sign In</a>
+      </li>
+      <li></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
+        <li ng-show="sharegaadi.isLoggedIn">
+        {{ sharegaadi.currentUser | displayNameFilter }}
+      </li>
+      <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn" >Logout</a></li>
     </ul>
+
+
     <ul class="side-nav" id="mobile-demo">
     <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>

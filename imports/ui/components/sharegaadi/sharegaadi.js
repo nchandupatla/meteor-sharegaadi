@@ -8,7 +8,43 @@ import { name as RidesList } from '../ridesList/ridesList';
 import { name as RideDetails } from '../rideDetails/rideDetails';
 import { name as UserLogin } from '../userLogin/userLogin';
 
-class Sharegaadi {}
+class Sharegaadi {
+
+constructor($scope, $reactive, $state) {
+    'ngInject';
+
+    this.$state = $state;
+
+    $reactive(this).attach($scope);
+    this.subscribe('userData');
+    
+    this.credentials = {
+      email: '',
+      password: ''
+    };
+
+    this.error = '';
+
+    this.helpers({
+
+       isLoggedIn() {
+        return !!Meteor.userId();
+      },
+      currentUser() {
+        return Meteor.user();
+      },
+       getServiceImageUrl(){
+        if (Meteor.user() && Meteor.user().services && Meteor.user().services.facebook)
+          return "http://graph.facebook.com/" + Meteor.user().services.facebook.id + "/picture/?type=large";
+      }
+
+    })
+  }
+
+ logout() {
+    Accounts.logout();
+  }
+}
 
 const name = 'sharegaadi';
 
