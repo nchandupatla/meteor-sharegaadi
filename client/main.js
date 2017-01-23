@@ -1,5 +1,5 @@
 import angular from 'angular';
-import 'materialize-css/dist/css/materialize.min.css'
+import '../node_modules/materialize-css/dist/css/materialize.min.css'
 import { Meteor } from 'meteor/meteor';
 
 import { name as Sharegaadi } from '../imports/ui/components/sharegaadi/sharegaadi';
