@@ -16,29 +16,22 @@
   </label>
   <input type="text" ng-model="rideAdd.ride.price" required />
 
-  <label>
-    Details (Optional):
-  </label>
-  <input type="text" ng-model="rideAdd.ride.description" />
-  <label>Car Rules</label>
-  <p>
+  <label>Car Rules</label><br>
+  
       <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
       <label for="filled-in-box1">Smoking</label>
-    </p>
-    <p>
+    
       <input type="checkbox" class="filled-in" id="filled-in-box2" ng-model="rideAdd.ride.rules.foodDrinks" />
       <label for="filled-in-box2">Food & Drinks</label>
-    </p>
-    <p>
+   
       <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
       <label for="filled-in-box3">Music</label>
-    </p>
-  
-  <!--<input type="text" ng-model="rideAdd.ride.toLocation" />-->
-  
-  <!--<input ng-model="rideAdd.ride.chosenPlace" details="rideAdd.ride.chosenPlaceDetails" googleplace/>-->
-
- <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()" ng-disabled="!myForm.fromLocation.$valid">Add Ride!</a>
-  <!--<button ng-click="rideAdd.submit()">Add Ride!</button>-->
-  <button ui-sref="rides">Back</button>
+<br><br>
+<label>
+    Addtional Notes (Optional):
+  </label>
+  <textarea id="textarea1" class="materialize-textarea" ng-model="rideAdd.ride.description"></textarea>
+<br>
+  <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()" ng-disabled="!myForm.fromLocation.$valid">Add Ride!</a>
+  <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
 </form>

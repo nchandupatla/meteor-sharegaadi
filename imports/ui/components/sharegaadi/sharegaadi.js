@@ -2,9 +2,11 @@ import angular from 'angular';
 import angularMeteor from 'angular-meteor';
 import uiRouter from 'angular-ui-router';
 
+import './sharegaadi.css';
 import template from './sharegaadi.html';
 import { name as RidesList } from '../ridesList/ridesList';
 import { name as RideDetails } from '../rideDetails/rideDetails';
+import { name as UserLogin } from '../userLogin/userLogin';
 
 class Sharegaadi {}
 
@@ -16,7 +18,8 @@ export default angular.module(name, [
   uiRouter,
   RidesList,
   RideDetails,
-  'accounts.ui'
+  'accounts.ui',
+  UserLogin
 ]).component(name, {
   template,
   controllerAs: name,
@@ -86,7 +89,7 @@ function run($rootScope, $state) {
   $rootScope.$on('$stateChangeError',
     (event, toState, toParams, fromState, fromParams, error) => {
       if (error === 'AUTH_REQUIRED') {
-        $state.go('rides');
+        $state.go('login');
       }
     }
   );

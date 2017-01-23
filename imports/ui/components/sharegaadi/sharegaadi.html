@@ -1,16 +1,28 @@
-<nav>
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">ShareGaadi</a>
-      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-        <li><login-buttons></login-buttons></li>
-         <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
-      </ul>
-      <ul class="side-nav" id="mobile-demo">
-       <li><login-buttons></login-buttons></li>
-       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
-      </ul>
-    </div>
-  </nav>
+<nav >
+  <div class="nav-wrapper">
+    <a href="/" class="brand-logo center"><h4>Sharegaadi</h4> the new desi portal</a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
+      <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+    <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
+      <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
+    </ul>
+  </div>
+</nav>
+<br>
 
-<div ui-view=""></div>
+<div class="container">
+  <div class="section">
+    <div ui-view=""></div>
+  </div>
+</div>
+<footer>
+  <div class="footer-copyright">
+      <div class="container">
+      @Copyrights sharegaadi team 2017</a>
+      </div>
+    </div>
+</footer>

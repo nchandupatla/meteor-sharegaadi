@@ -46,6 +46,15 @@ function config($stateProvider) {
       url: '/addRide',
       template: template,
       controllerAs: name,
-      controller: RideAdd
+      controller: RideAdd,
+      resolve: {
+      currentUser($q) {
+        if (Meteor.userId() === null) {
+          return $q.reject('AUTH_REQUIRED');
+        } else {
+          return $q.resolve();
+        }
+      }
+    }
     });
 }

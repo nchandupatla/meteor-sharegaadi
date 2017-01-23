@@ -5,6 +5,7 @@ import utilsPagination from 'angular-utils-pagination';
 
 import { Counts } from 'meteor/tmeasday:publish-counts';
 
+import './ridesList.css';
 import template from './ridesList.html';
 import { Rides } from '../../../api/rides';
 import { name as RidesSort } from '../ridesSort/ridesSort';
