@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <a ui-sref="rides" class="waves-effect waves-light btn">Got it</a>
+    <a ui-sref="rides" class="waves-effect waves-light btn" ng-click="sharegaadi.closeHowItWorksModal()" >Got it</a>
   </div>
 </div>
 
@@ -37,7 +37,7 @@
   <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
 </ul>
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper brown lighten-2">
     <a href="/" class="brand-logo center"><i class="material-icons md-48">directions_car</i></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
@@ -48,14 +48,18 @@
       <li></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
       <!-- Dropdown Trigger -->
-      <li ng-show="sharegaadi.isLoggedIn"><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li ng-show="sharegaadi.isLoggedIn">
+        <a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a>
+      </li>
     </ul>
 
 
     <ul class="side-nav" id="mobile-demo">
-      <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
-    </ul>
+      <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
+      </ul>
   </div>
 </nav>
 <br>
@@ -72,6 +76,7 @@
       </div>
     </div>
 </footer>-->
+
 <script>
   $(document).ready(function () {
     $(".button-collapse").sideNav();

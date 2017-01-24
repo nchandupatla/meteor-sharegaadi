@@ -48,6 +48,9 @@ constructor($scope, $reactive, $state) {
 openHowItWorksModal(){
     $('#modal1').openModal();
 }
+closeHowItWorksModal(){
+    $('#modal1').closeModal();
+}
 
 }
 

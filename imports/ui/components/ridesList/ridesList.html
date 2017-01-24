@@ -8,54 +8,56 @@
     <div class="row">
       <div class="row center">
         <h4 class="header col s12">Let's travel together, make new friends and split your fare</h4>
+        
+        <p class="col s12">
+        <input class="with-gap" name="group3" type="radio" id="test5" checked />
+        <label for="test5">Ride Offers</label>
+        <input class="with-gap" name="group3" type="radio" id="test6" />
+        <label for="test6">Ride Request</label>
+        </p>
+
       </div>
     </div>
 </div>
 
 <div class="row container">
   <div class="col s12">
-    <h5 class="header col s6">Ride Offers</h5>
+   
     <div class="row">
-      <div class="col s4">
-        <!--<input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />-->
+      <div class="col s6">
+        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />
       </div>
-      <div class="col s2">
+        <div class="col s6">
         <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
+        </div>
       </div>
     </div>
-    <ul class="collection">
-      <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
-        <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
+
+    <div dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
+       <div class="col s12 m6 l4">
+      <ul class="collection">
+      <li class="collection-item avatar">
+         <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
         <a ui-sref="rideDetails({ rideId: ride._id })">
           <h5>{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h5>
         </a>
-        <p>Estimated Start Time on {{ride.date | date:'medium'}}</p>
-        <p>{{ride.description}}</p> <br>
-        <h4 class="secondary-content">
-          <!--<i class="material-icons">grade</i>-->
-          {{ride.price | currency:"$":0 }}
-        </h4>
-
-        <span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
+        <span>{{ride.date | date:'medium'}}  <span class="right">{{ride.price | currency:"$":0 }}</span></span>
+        <!--<span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
         <span ng-hide="!ride.rules.music" class="chip">Music</span>
-        <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
-        <h6 class="right hide-on-med-and-down">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
+        <span ng-hide="!ride.rules.foodDrinks" <class></class>="chip">Food & Drinks</span>-->
+        <!--<h6 class="right hide-on-med-and-down">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>-->
       </li>
     </ul>
+       </div>
+    </div>
+    
     <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" class="right hide-on-med-and-down"></dir-pagination-controls>
   </div>
 
-  <div class="col s12">
+  <!--<div class="col s12">
     <div class="row">
-      <br><br><br>
-      <h5 class="header col s6">Ride Requests</h5>
-      <div class="input-field col s4">
-        <!--<i class="material-icons prefix">mode_edit</i>
-        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />-->
-      </div>
-      <div class="col s2">
+        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />
         <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
-      </div>
     </div>
     <ul class="collection">
       <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
@@ -69,14 +71,13 @@
         <span ng-hide="!ride.rules.music" class="chip">Music</span>
         <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
         <h4 class="secondary-content">
-          <!--<i class="material-icons">grade</i>-->
           {{ride.price | currency:"$":0 }}
         </h4>
         <h6 class="right hide-on-med-and-down">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
       </li>
     </ul>
     <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" class="right hide-on-med-and-down"></dir-pagination-controls>
-  </div>
+  </div>-->
 </div>
 
 <!--
