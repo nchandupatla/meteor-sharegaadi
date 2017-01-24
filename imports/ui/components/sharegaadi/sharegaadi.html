@@ -1,44 +1,80 @@
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4 class="center">How it works</h4>
+    <div class="row">
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center brown-text"><i class="material-icons md-48">date_range</i></h1>
+          <h6 class="center">Search driver listings leaving from your city and get where you need to go.</h6>
+          <!--<p class="light">Search driver listings leaving from your city and get where you need to go.</p>-->
+        </div>
+      </div>
 
-<nav >
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center brown-text"><i class="material-icons md-48">group</i></h1>
+          <h6 class="center">Connect with drivers, confirm arrangements, and split the fares.</h6>
+          <!--<p class="light">Connect with drivers, confirm arrangements, and split the fares.</p>-->
+        </div>
+      </div>
+
+      <div class="col s12 m4">
+        <div class="icon-block">
+          <h1 class="center brown-text"><i class="material-icons md-48">insert_emoticon</i></h1>
+          <h6 class="center">Enjoy the trip, make some new friends, and safely arrive at your destination.</h6>
+          <!--<p class="light">Enjoy the trip, make some new friends, and safely arrive at your destination.</p>-->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a ui-sref="rides" class="waves-effect waves-light btn">Got it</a>
+  </div>
+</div>
+
+<ul id="dropdown1" class="dropdown-content">
+  <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
+</ul>
+<nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo center"><h4>Sharegaadi</h4></a>
+    <a href="/" class="brand-logo center"><i class="material-icons md-48">directions_car</i></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-      <ul class="right hide-on-med-and-down">
-      <li ng-hide="sharegaadi.isLoggedIn">
+    <ul class="right hide-on-med-and-down">
+      <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
+      <!--<li ng-hide="sharegaadi.isLoggedIn">
         <a class="waves-effect waves-light btn" ui-sref="login">Sign In</a>
-      </li>
+      </li>-->
       <li></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
-        <li ng-show="sharegaadi.isLoggedIn">
-        {{ sharegaadi.currentUser | displayNameFilter }}
-      </li>
-      <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn" >Logout</a></li>
+      <!-- Dropdown Trigger -->
+      <li ng-show="sharegaadi.isLoggedIn"><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a></li>
     </ul>
 
 
     <ul class="side-nav" id="mobile-demo">
-    <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
+      <li><a class="waves-effect waves-light btn" ui-sref="login">Sign In</a></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
     </ul>
   </div>
 </nav>
 <br>
 
-<div class="container">
+<div>
   <div class="section">
     <div ui-view=""></div>
   </div>
 </div>
-<footer>
+<!--<footer>
   <div class="footer-copyright">
       <div class="container">
       @Copyright's sharegaadi team 2017</a>
       </div>
     </div>
-</footer>
+</footer>-->
 <script>
-// $( document ).ready(function(){
-//   $(".button-collapse").sideNav();
-// })
- 
+  $(document).ready(function () {
+    $(".button-collapse").sideNav();
+    $(".dropdown-button").dropdown();
+  })
 </script>

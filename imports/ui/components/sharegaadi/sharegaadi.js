@@ -44,6 +44,11 @@ constructor($scope, $reactive, $state) {
  logout() {
     Accounts.logout();
   }
+  
+openHowItWorksModal(){
+    $('#modal1').openModal();
+}
+
 }
 
 const name = 'sharegaadi';

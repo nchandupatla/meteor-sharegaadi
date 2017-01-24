@@ -4,50 +4,22 @@
 </div>
 <br>-->
 <div class="container">
-  <div class="section">
-    <!--   Icon Section   -->
+
     <div class="row">
       <div class="row center">
-        <h4 class="header col s12">Welcome to the new desi travel portal. <br>Let's travel together, make new friends and split your fare</h4>
-      </div>
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h1 class="center brown-text"><i class="material-icons md-48">date_range</i></h1>
-          <h6 class="center">Search driver listings leaving from your city and get where you need to go.</h6>
-          <!--<p class="light">Search driver listings leaving from your city and get where you need to go.</p>-->
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h1 class="center brown-text"><i class="material-icons md-48">group</i></h1>
-          <h6 class="center">Connect with drivers, confirm arrangements, and split the fares.</h6>
-          <!--<p class="light">Connect with drivers, confirm arrangements, and split the fares.</p>-->
-        </div>
-      </div>
-
-      <div class="col s12 m4">
-        <div class="icon-block">
-          <h1 class="center brown-text"><i class="material-icons md-48">insert_emoticon</i></h1>
-          <h6 class="center">Enjoy the trip, make some new friends, and safely arrive at your destination.</h6>
-          <!--<p class="light">Enjoy the trip, make some new friends, and safely arrive at your destination.</p>-->
-        </div>
+        <h4 class="header col s12">Let's travel together, make new friends and split your fare</h4>
       </div>
     </div>
-
-  </div>
 </div>
 
-<div class="row center">
-  <h4 class="header col s12">Ride Offers</h4>
-</div>
-<div class="row">
+<div class="row container">
   <div class="col s12">
+    <h5 class="header col s6">Ride Offers</h5>
     <div class="row">
-      <div class="col s6">
-        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />
+      <div class="col s4">
+        <!--<input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />-->
       </div>
-      <div class="col s6">
+      <div class="col s2">
         <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
       </div>
     </div>
@@ -55,7 +27,7 @@
       <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
         <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
         <a ui-sref="rideDetails({ rideId: ride._id })">
-          <span class="title">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</span>
+          <h5>{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h5>
         </a>
         <p>Estimated Start Time on {{ride.date | date:'medium'}}</p>
         <p>{{ride.description}}</p> <br>
@@ -72,18 +44,16 @@
     </ul>
     <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" class="right hide-on-med-and-down"></dir-pagination-controls>
   </div>
-</div>
 
-<div class="row center">
-  <h4 class="header col s12">Ride Requests</h4>
-</div>
-<div class="row">
   <div class="col s12">
     <div class="row">
-      <div class="col s6">
-        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />
+      <br><br><br>
+      <h5 class="header col s6">Ride Requests</h5>
+      <div class="input-field col s4">
+        <!--<i class="material-icons prefix">mode_edit</i>
+        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />-->
       </div>
-      <div class="col s6">
+      <div class="col s2">
         <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
       </div>
     </div>
@@ -91,7 +61,7 @@
       <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
         <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
         <a ui-sref="rideDetails({ rideId: ride._id })">
-          <span class="title">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</span>
+          <h5>{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h5>
         </a>
         <p>Estimated Start Time on {{ride.date | date:'medium'}}</p>
         <p>{{ride.description}}</p> <br>
@@ -109,7 +79,7 @@
   </div>
 </div>
 
-
+<!--
  <div class="row container">
     <rides-map rides="ridesList.rides"></rides-map>
-  </div>
+  </div>-->

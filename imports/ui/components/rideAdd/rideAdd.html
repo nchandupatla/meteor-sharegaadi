@@ -1,3 +1,5 @@
+<div class="row">
+<div class="col s6 offset-s3">
 <form name="myForm">
   <label>
     From:
@@ -9,7 +11,8 @@
   </label>
   <input ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace required/>
   <label>Start Date:</label>
-  <input type="datetime-local" ng-model="rideAdd.ride.date" required>
+  <input type="date" class="datepicker" ng-model="rideAdd.ride.date">
+  <!--<input type="datetime-local"  required>-->
   <label>
     Price:
   </label>
@@ -50,3 +53,12 @@
   <a class="waves-effect waves-light btn" ng-click="rideAdd.submit()" ng-disabled="!myForm.fromLocation.$valid">Add Ride!</a>
   <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
 </form>
+</div>
+</div>
+
+<script>
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+</script>
