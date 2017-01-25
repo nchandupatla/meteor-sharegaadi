@@ -25,6 +25,7 @@ class RidesList {
       fromLocation: 1
     };
     this.searchText = '';
+    this.type='1';
 
     this.subscribe('rides', () => [{
         limit: parseInt(this.perPage),

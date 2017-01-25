@@ -37,16 +37,16 @@
   <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
 </ul>
 <nav>
-  <div class="nav-wrapper brown lighten-2">
+  <div class="nav-wrapper">
     <a href="/" class="brand-logo center"><i class="material-icons md-48">directions_car</i></a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
-      <!--<li ng-hide="sharegaadi.isLoggedIn">
+      <!--<li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>-->
+      <li ng-hide="sharegaadi.isLoggedIn">
         <a class="waves-effect waves-light btn" ui-sref="login">Sign In</a>
-      </li>-->
+      </li>
       <li></li>
-      <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
+      <!--<li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>-->
       <!-- Dropdown Trigger -->
       <li ng-show="sharegaadi.isLoggedIn">
         <a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a>
@@ -67,8 +67,14 @@
 <div>
   <div class="section">
     <div ui-view=""></div>
+    
   </div>
 </div>
+ <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red" ui-sref="addRide">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
 <!--<footer>
   <div class="footer-copyright">
       <div class="container">

@@ -1,11 +1,11 @@
-<div class="row">
+<!--<div class="row">
 <div class="col s6 offset-s3">
 <form name="myForm">
   <label>
     From:
   </label>
   <input name="fromLocation" ng-model="rideAdd.ride.fromLocation" details="rideAdd.ride.fromPlaceDetails" googleplace required/>
-  <!--<input type="text" ng-model="rideAdd.ride.fromLocation" />-->
+  
   <label>
     To:
   </label>
@@ -14,7 +14,7 @@
   <span class="row">
   <input type="date" class="datepicker" ng-model="rideAdd.ride.date">
   </span>
-  <!--<input type="datetime-local"  required>-->
+  
   <label>
     Price:
   </label>
@@ -56,7 +56,98 @@
   <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
 </form>
 </div>
+</div>-->
+
+
+
+<div class="row">
+  <form class="col s6 offset-s3">
+  <div class="input-field">
+    <!--<select class="browser-default" ng-model="rideAdd.ride.type" ng-init="rideAdd.ride.type=='s'">
+      <option value="offer">I'm offering a ride</option>
+      <option value="request">I'm requesting a ride</option>
+    </select>-->
+
+    <select class="browser-default" ng-init="rideAdd.ride.type = rideAdd.options[0]" 
+        ng-model="rideAdd.ride.type"  
+        ng-options="option.name for option in rideAdd.options">
+   </select>
+
+  </div>
+  <br>
+</form>
+    <form class="col s6 offset-s3" name="myForm"  novalidate>
+      <div class="row">
+        <div class="input-field">
+          <input required placeholder="" ng-model="rideAdd.ride.fromLocation" details="rideAdd.ride.fromPlaceDetails" googleplace id="start_loc" type="text" class="validate">
+          <label for="start_loc">Departure</label>
+        </div>
+        <div class="input-field">
+          <input required placeholder="" ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace id="end_location" type="text" class="validate">
+          <label for="end_location">Arrival</label>
+        </div>
+        <div class="input-field">
+          <input required  placeholder=""  type="date" class="datepicker" ng-model="rideAdd.ride.date" id="date">
+          <label for="date">Date</label>
+        </div>
+        <div class="input-field">
+          <i class="material-icons prefix">attach_money</i>
+          <input required  placeholder="" ng-model="rideAdd.ride.price"  id="price" type="text" class="validate">
+          <label for="price">Price</label>
+        </div>
+          <div class="input-field">
+          <label>How would you like to be contacted?</label><br>
+          <p>
+          <input class="with-gap" name="group3" type="radio" id="test5" checked />
+          <label for="test5">mobile</label>
+          <input class="with-gap" name="group3" type="radio" id="test6" checked />
+          <label for="test6">email</label>
+          <input class="with-gap" name="group3" type="radio" id="test7" checked />
+          <label for="test7">mobile and email</label>
+          </p>
+        </div>
+        <br>
+        <div class="input-field">
+          <input required placeholder="" id="email" type="email" class="validate" ng-model="rideAdd.ride.contact.email">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field">
+          <input required placeholder="" id="phone" type="tel" class="validate" ng-model="rideAdd.ride.contact.mobile">
+          <label for="phone">Phone</label>
+        </div>
+
+        <div class="input-field">
+          <label>Preferences</label><br>
+          <p>
+          <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
+          <label for="filled-in-box1">Smoking</label>
+
+          <input type="checkbox" class="filled-in" id="filled-in-box2" ng-model="rideAdd.ride.rules.foodDrinks" />
+          <label for="filled-in-box2">Food & Drinks</label>
+
+          <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
+          <label for="filled-in-box3">Music</label>
+          </p>
+        </div>
+
+        <br><br><br>
+        <div>
+          <a class="waves-effect waves-light btn"  ng-click="rideAdd.submit()" ng-disabled="!myForm.$valid">Add Ride!</a>
+          <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
+        </div>
+      </div>
+    </form>
 </div>
+
+ <!-- Modal Structure -->
+  <div id="successPostModal" class="modal">
+    <div class="modal-content">
+      <h4>You have successfully submitted your post</h4>
+    </div>
+    <div class="modal-footer">
+      <a ui-sref="rides" class="waves-effect waves-light btn center" ng-click="rideAdd.closeHowItWorksModal()" >Ok</a>
+    </div>
+  </div>
 
 <script>
 $('.datepicker').pickadate({

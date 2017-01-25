@@ -7,25 +7,38 @@ import template from './rideAdd.html';
 import { Rides } from '../../../api/rides';
 
 class RideAdd {
-  constructor() {
+  constructor($scope, $state, $reactive) {
+    this.$state = $state;
+    $reactive(this).attach($scope);
     this.ride = {};
-    this.ride.rules={};
-    this.ride.contact={};
-  }
+    this.ride.rules = {};
+    this.ride.contact = {};
+     if(Meteor.user() && Meteor.user().services && (Meteor.user().services.facebook)){
+       this.ride.contact.email = Meteor.user().services.facebook.email;
+     }
+    this.options = [{ 'name': 'I am offering a ride', 'value': '0' }, { 'name': 'I am requesting a ride', 'value': '1' }]
+  
+    
+}
 
   submit() {
     this.ride.owner = Meteor.userId();
-    this.ride.public=true;
-
-    //console.log('loc obj '+JSON.stringify(this.ride.chosenPlace))
-    //console.log('loc details '+JSON.stringify(this.ride.chosenPlaceDetails))
+    this.ride.public = true;
+    this.ride.type=this.ride.type.value;
+    //console.log('ride details '+JSON.stringify(this.ride))
     Rides.insert(this.ride);
     this.reset();
+    $('#successPostModal').openModal();
+  }
+
+  closeHowItWorksModal() {
+    $('#successPostModal').closeModal();
   }
 
   reset() {
     this.ride = {};
   }
+  
 }
 
 const name = 'rideAdd';
@@ -38,7 +51,7 @@ export default angular.module(name, [
   controllerAs: name,
   controller: RideAdd
 })
-.config(config);
+  .config(config);
 
 function config($stateProvider) {
   'ngInject';
@@ -49,13 +62,13 @@ function config($stateProvider) {
       controllerAs: name,
       controller: RideAdd,
       resolve: {
-      currentUser($q) {
-        if (Meteor.userId() === null) {
-          return $q.reject('AUTH_REQUIRED');
-        } else {
-          return $q.resolve();
+        currentUser($q) {
+          if (Meteor.userId() === null) {
+            return $q.reject('AUTH_REQUIRED');
+          } else {
+            return $q.resolve();
+          }
         }
       }
-    }
     });
 }
