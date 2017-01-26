@@ -43,6 +43,7 @@ constructor($scope, $reactive, $state) {
 
  logout() {
     Accounts.logout();
+    this.$state.go('rides');
   }
   
 openHowItWorksModal(){

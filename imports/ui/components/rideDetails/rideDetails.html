@@ -5,9 +5,14 @@
   <h4>{{rideDetails.ride.fromLocation.replace(', United States', '')}} to {{rideDetails.ride.toLocation.replace(', United States', '')}}</h4>
   <p>Price: {{rideDetails.ride.price | currency:"$":0}}</p>
   <p> Starting on: {{rideDetails.ride.date | date:'medium'}}</p>
-  <p> Addtional notes: {{rideDetails.ride.description}}</p>
   <p> Contact Name: {{rideDetails.getUser(rideDetails.ride.owner) | displayNameFilter}} </p>
-  <p> Contact Details: {{rideDetails.ride.contact.email}} {{rideDetails.ride.contact.mobile}} </p>
+  <p ng-show="rideDetails.ride.contact.email"> Email: {{rideDetails.ride.contact.email}}  </p>
+  <p ng-show="rideDetails.ride.contact.mobile"> Phone: {{rideDetails.ride.contact.mobile}} </p>
+  <p><span ng-hide="!rideDetails.ride.rules.smoking" class="chip">No Smoking</span>
+        <span ng-hide="!rideDetails.ride.rules.music" class="chip">Music</span>
+        <span ng-hide="!rideDetails.ride.rules.foodDrinks" class="chip">Food & Drinks</span>
+  </p>
+  <p ng-show="rideDetails.ride.description"> Addtional notes: {{rideDetails.ride.description}}</p>
 </form>
 
 <br><br><br>
@@ -16,9 +21,9 @@
 </div>
 </div>
 <br><br><br><br><br>
-<div class="row">
+<!--<div class="row">
 <div class="col s6 offset-s2">
 <ride-map location="location"></ride-map>
 </div>
-</div>
+</div>-->
 

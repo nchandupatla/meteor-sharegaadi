@@ -13,18 +13,17 @@ class RideAdd {
     this.ride = {};
     this.ride.rules = {};
     this.ride.contact = {};
+    this.contactType='both';
      if(Meteor.user() && Meteor.user().services && (Meteor.user().services.facebook)){
        this.ride.contact.email = Meteor.user().services.facebook.email;
      }
-    this.options = [{ 'name': 'I am offering a ride', 'value': '0' }, { 'name': 'I am requesting a ride', 'value': '1' }]
-  
-    
+    //this.options = [{ 'name': 'I am offering a ride', 'value': '0' }, { 'name': 'I am requesting a ride', 'value': '1' }]
 }
 
   submit() {
     this.ride.owner = Meteor.userId();
     this.ride.public = true;
-    this.ride.type=this.ride.type.value;
+    //this.ride.type=this.ride.type.value;
     //console.log('ride details '+JSON.stringify(this.ride))
     Rides.insert(this.ride);
     this.reset();

@@ -27,7 +27,7 @@ class RidesList {
     this.searchText = '';
     this.type='1';
 
-    this.subscribe('rides', () => [{
+    this.subscribe('rideSearch', () => [{
         limit: parseInt(this.perPage),
         skip: parseInt((this.getReactively('page') - 1) * this.perPage),
         sort: this.getReactively('sort')
@@ -97,7 +97,30 @@ export default angular.module(name, [
   controllerAs: name,
   controller: RidesList
 })
-  .config(config);
+  .config(config)
+  .filter('cut', function () {
+        return function (value, wordwise, max, tail) {
+            if (!value) return '';
+
+            max = parseInt(max, 10);
+            if (!max) return value;
+            if (value.length <= max) return value;
+
+            value = value.substr(0, max);
+            if (wordwise) {
+                var lastspace = value.lastIndexOf(' ');
+                if (lastspace != -1) {
+                  //Also remove . and , so its gives a cleaner result.
+                  if (value.charAt(lastspace-1) == '.' || value.charAt(lastspace-1) == ',') {
+                    lastspace = lastspace - 1;
+                  }
+                  value = value.substr(0, lastspace);
+                }
+            }
+
+            return value + (tail || ' …');
+        };
+    })
 
 function config($stateProvider) {
   'ngInject';
