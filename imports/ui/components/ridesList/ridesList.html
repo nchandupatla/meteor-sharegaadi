@@ -3,7 +3,13 @@
   Log in to create a ride!
 </div>
 <br>-->
-<span class="row center"><h5>Let's travel together, make new friends and split your fare</h5>
+<span class="row col s12">
+  <span class="col s11">
+  <h5 class="center">Let's travel together, make new friends and split your fare</h5>
+  </span>
+  <span class="col l1 m12 s12">
+  <input class="left" type="search" ng-model="ridesList.searchText" placeholder="Search" />
+  </span>
         <!--<h4 class="header col s12 thin">Let's travel together, make new friends and split your fare</h4>
        -->
         <!--<p class="col s12">
@@ -36,20 +42,21 @@
       <li class="collection-item avatar">
          <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
         <a ui-sref="rideDetails({ rideId: ride._id })">
-          <h6>{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
+          <h6 style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
         </a>
         <span class="row s12">
-            <span class="col s10">
-              <span class="col s6 left">
+            <span>
+              <span class="col s10 " style="margin-left: -14px">
               <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> Jan 5, 16
-              </span>
-               <span class="col s6 right">
               <i class="material-icons md-12">access_time</i>6:30pm
+              </span>
+               <span class="col s2">
+              <b>{{ride.price | currency:"$":0 }}</b>
                </span>
             </span>
-            <span class="col s2">
+            <!--<span class="col s2">
               <h5 style="margin: -1.1rem 0 -0.1rem 0"> {{ride.price | currency:"$":0 }} </h5>
-            </span>
+            </span>-->
         </span>
         <h6 class="right hide-on-med-and-down" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
       </li>
