@@ -1,13 +1,5 @@
 <div class="row">
-  <form class="col s12 m6 l6  offset-m3 offset-l3">
-  <div class="input-field">
-    <!--<select class="browser-default" ng-init="rideAdd.ride.type = rideAdd.options[0]" 
-        ng-model="rideAdd.ride.type"  
-        ng-options="option.name for option in rideAdd.options">
-   </select>-->
-  </div>
-  <br>
-</form>
+    <h5 class="center">Trip Info</h5>
     <form class="col s12 m6 l6  offset-m3 offset-l3" name="myForm"  novalidate>
       <div class="row">
         <div class="input-field">
@@ -19,7 +11,9 @@
           <label for="end_location">Arrival</label>
         </div>
         <div class="input-field">
-          <input required  placeholder=""  type="date" class="datepicker" ng-model="rideAdd.ride.date" id="date">
+          <!--<input required  placeholder=""  type="date" class="datepicker" ng-model="rideAdd.ride.date" id="date">
+         --> 
+          <input type="datetime" required  placeholder="" ng-model="rideAdd.ride.date" id="date">
           <label for="date">Date</label>
         </div>
         <div class="input-field">

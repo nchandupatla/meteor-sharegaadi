@@ -14,7 +14,8 @@ import { name as RideAdd } from '../rideAdd/rideAdd';
 import { name as RideCreator } from '../rideCreator/rideCreator';
 
 class RidesList {
-  constructor($scope, $reactive) {
+  
+  constructor($scope, $reactive, $rootScope) {
     'ngInject';
 
     $reactive(this).attach($scope);
@@ -53,6 +54,11 @@ class RidesList {
         return Meteor.userId();
       }
     });
+
+    // $rootScope.$on("CallParentMethod", function(data){
+    //   console.log('dsdsf '+data);
+    //        $scope.searchText=data;
+    //     });
   }
 
   isOwner(ride) {

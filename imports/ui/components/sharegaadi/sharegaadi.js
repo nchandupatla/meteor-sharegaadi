@@ -10,7 +10,7 @@ import { name as UserLogin } from '../userLogin/userLogin';
 
 class Sharegaadi {
 
-constructor($scope, $reactive, $state) {
+constructor($scope, $reactive, $state, $rootScope) {
     'ngInject';
 
     this.$state = $state;
@@ -24,6 +24,7 @@ constructor($scope, $reactive, $state) {
     };
 
     this.error = '';
+    this.searchText='';
 
     this.helpers({
 
@@ -39,6 +40,7 @@ constructor($scope, $reactive, $state) {
       }
 
     })
+    // $rootScope.$emit("CallParentMethod", {data:this.searchText});
   }
 
  logout() {
