@@ -55,6 +55,25 @@ closeHowItWorksModal(){
     $('#modal1').closeModal();
 }
 
+openSignInModal(){
+    $('#signInModal').openModal();
+}
+
+ facebookLogin() {
+    $('#signInModal').closeModal();
+    Meteor.loginWithFacebook({
+      loginStyle:"redirect"
+    }, this.$bindToContext((error) => {
+      if (error) {
+        console.log(error); //If there is any error, will get error here
+      } else {
+        console.log(Meteor.user());// If there is successful login, you will get login details here
+        this.$state.go('rides');
+      }
+      })
+    );
+  }
+
 }
 
 const name = 'sharegaadi';

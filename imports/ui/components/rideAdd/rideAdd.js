@@ -18,13 +18,17 @@ class RideAdd {
        this.ride.contact.email = Meteor.user().services.facebook.email;
      }
     //this.options = [{ 'name': 'I am offering a ride', 'value': '0' }, { 'name': 'I am requesting a ride', 'value': '1' }]
+   
 }
 
   submit() {
     this.ride.owner = Meteor.userId();
     this.ride.public = true;
-    //this.ride.type=this.ride.type.value;
+    this.ride.date=new Date(this.ride.date);
+    this.ride.tags=$('.chips-initial').material_chip('data');
+    
     //console.log('ride details '+JSON.stringify(this.ride))
+  
     Rides.insert(this.ride);
     this.reset();
     $('#successPostModal').openModal();

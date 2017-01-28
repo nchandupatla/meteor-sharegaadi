@@ -35,6 +35,9 @@ class RideDetails {
         return Meteor.users.find({});
       },
       isLoggedIn() {
+        // $('.chips').material_chip({
+        //   data: this.ride.tags
+        //  })
         return !!Meteor.userId();
       },
       isOwner() {
@@ -44,12 +47,16 @@ class RideDetails {
 
         return this.ride.owner === Meteor.userId();
       }
+      
     });
   
   }
+  
    getUser(id){
     return Meteor.users.findOne(id);
   }
+
+  
 }
 
 const name = 'rideDetails';

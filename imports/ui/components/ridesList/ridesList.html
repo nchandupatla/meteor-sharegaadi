@@ -47,8 +47,8 @@
         <span class="row s12">
             <span>
               <span class="col s10 " style="margin-left: -14px">
-              <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> Jan 5, 16
-              <i class="material-icons md-12">access_time</i>6:30pm
+              <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> {{ride.date | date:'d MMM yy'}}
+              <i class="material-icons md-12">access_time</i>{{ride.time | date:'shortTime'}}
               </span>
                <span class="col s2">
               <b>{{ride.price | currency:"$":0 }}</b>

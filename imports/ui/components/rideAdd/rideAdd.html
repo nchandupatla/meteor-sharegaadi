@@ -10,15 +10,18 @@
           <input required placeholder="" ng-model="rideAdd.ride.toLocation" details="rideAdd.ride.toPlaceDetails" googleplace id="end_location" type="text" class="validate">
           <label for="end_location">Arrival</label>
         </div>
-        <div class="input-field">
-          <!--<input required  placeholder=""  type="date" class="datepicker" ng-model="rideAdd.ride.date" id="date">
-         --> 
-          <input type="datetime" required  placeholder="" ng-model="rideAdd.ride.date" id="date">
-          <label for="date">Date</label>
+        <div class="input-field row s12 l12 m12">
+          <span class="col s6 l6 m6">
+          <input required  placeholder=""  type="date" class="datepicker" ng-model="rideAdd.ride.date" id="date">
+          <label for="date">Date and Time</label>
+          </span>
+           <span class="col s6 l6 m6">
+           <input type="time" ng-model="rideAdd.ride.time" required />
+           </span>
         </div>
         <div class="input-field">
           <i class="material-icons prefix">attach_money</i>
-          <input required  placeholder="" ng-model="rideAdd.ride.price"  id="price" type="text" class="validate">
+          <input  placeholder="" ng-model="rideAdd.ride.price"  id="price" type="text" class="validate">
           <label for="price">Price</label>
         </div>
           <div class="input-field">
@@ -42,7 +45,7 @@
           <label for="phone">Phone</label>
         </div>
 
-        <div class="input-field">
+        <!--<div class="input-field">
           <label>Preferences and custom tags</label><br>
           <p>
           <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
@@ -54,13 +57,13 @@
           <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
           <label for="filled-in-box3">Music</label>
           </p>
-        </div>
+        </div>-->
         <br><br>
         <div class="chips chips-initial"></div>
 
-        <br><br><br>
+        <br><br>
         <div>
-          <a class="waves-effect waves-light btn"  ng-click="rideAdd.submit()" ng-disabled="!myForm.$valid">Add Ride!</a>
+          <a class="waves-effect waves-light btn" ng-disabled="!myForm.$valid"  ng-click="rideAdd.submit()" >Add Ride!</a>
           <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
         </div>
       </div>
@@ -81,13 +84,16 @@ $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
     selectYears: 15 // Creates a dropdown of 15 years to control year
   });
+
    $('.chips-initial').material_chip({
     data: [{
       tag: 'English',
     }, {
       tag: 'Hindi',
     }, {
-      tag: 'Telugu',
+      tag: 'No Smoking',
+    }, {
+      tag: 'Music',
     }],
   });
 </script>
