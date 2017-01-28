@@ -39,11 +39,13 @@
           <!--<p class="light">Enjoy the trip, make some new friends, and safely arrive at your destination.</p>-->
         </div>
       </div>
+      <br><br>
+      <div class="center">
+        <a ui-sref="rides" class="waves-effect waves-light btn" ng-click="sharegaadi.closeHowItWorksModal()" >Got it</a>
+      </div>
     </div>
   </div>
-  <div class="modal-footer">
-    <a ui-sref="rides" class="waves-effect waves-light btn" ng-click="sharegaadi.closeHowItWorksModal()" >Got it</a>
-  </div>
+ 
 </div>
 
 <ul id="dropdown1" class="dropdown-content">
@@ -72,6 +74,7 @@
 
     <ul class="side-nav" id="mobile-demo">
       <li ng-show="sharegaadi.isLoggedIn"><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li><a class="waves-effect waves-light btn" ui-sref="rides">Home</a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">Sign In</a></li>
       <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
       <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
@@ -96,7 +99,7 @@
 
 <script>
   $(document).ready(function () {
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav({closeOnClick: true});
     $(".dropdown-button").dropdown();
     $(".dropdown-button1").dropdown();
   })

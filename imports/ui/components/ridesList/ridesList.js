@@ -20,7 +20,7 @@ class RidesList {
 
     $reactive(this).attach($scope);
 
-    this.perPage = 6;
+    this.perPage = 12;
     this.page = 1;
     this.sort = {
       fromLocation: 1

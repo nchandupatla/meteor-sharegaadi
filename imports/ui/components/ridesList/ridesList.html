@@ -50,7 +50,7 @@
               <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> {{ride.date | date:'d MMM yy'}}
               <i class="material-icons md-12">access_time</i>{{ride.time | date:'shortTime'}}
               </span>
-               <span class="col s2">
+               <span class="col s2" style="margin-right: 10px">
               <b>{{ride.price | currency:"$":0 }}</b>
                </span>
             </span>
@@ -64,7 +64,7 @@
        </div>
     </div>
     
-    <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" class="right hide-on-med-and-down"></dir-pagination-controls>
+    <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" ></dir-pagination-controls>
   </div>
   <!--<div class="col s12">
     <div class="row">
