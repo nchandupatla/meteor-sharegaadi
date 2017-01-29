@@ -13,7 +13,6 @@ class UserLogin {
     $reactive(this).attach($scope);
     this.$state = $state;
     if(Meteor.user()){
-      console.log('fsdfsdf');
       this.$state.go('rides');
     }else{
       console.log('not logged in');
