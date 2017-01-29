@@ -76,7 +76,8 @@
       <li ng-show="sharegaadi.isLoggedIn"><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a></li>
       <li><a class="waves-effect waves-light btn" ui-sref="rides">Home</a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">Sign In</a></li>
-      <li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
+      <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">Post A Trip</a></li>
       <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
       </ul>
   </div>
