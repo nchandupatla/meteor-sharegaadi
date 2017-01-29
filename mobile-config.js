@@ -1,8 +1,8 @@
 // This section sets up some basic app metadata,
 // the entire section is optional.
 App.info({
-  id: 'com.meteor.saphari.app',
-  name: 'Saphari',
+  id: 'com.meteor.rimzim.rides',
+  name: 'RimZim Rides',
   description: 'Easy ride share application',
   author: 'Naveen Chandupatla',
   email: 'nkchandupatla@gmail.com',
