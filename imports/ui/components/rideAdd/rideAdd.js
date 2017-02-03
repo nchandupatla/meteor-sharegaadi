@@ -14,11 +14,11 @@ class RideAdd {
     this.ride.rules = {};
     this.ride.contact = {};
     this.contactType='both';
+    
      if(Meteor.user() && Meteor.user().services && (Meteor.user().services.facebook)){
        this.ride.contact.email = Meteor.user().services.facebook.email;
+       
      }
-    //this.options = [{ 'name': 'I am offering a ride', 'value': '0' }, { 'name': 'I am requesting a ride', 'value': '1' }]
-   
 }
 
   submit() {
@@ -71,6 +71,11 @@ function config($stateProvider) {
           } else {
             return $q.resolve();
           }
+        },
+        userService: function(userService) {
+           if(Meteor.user() && Meteor.user().services && (Meteor.user().services.facebook)){
+            return Meteor.user().services.facebook.email;
+           }
         }
       }
     });

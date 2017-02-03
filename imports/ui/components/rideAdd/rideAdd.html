@@ -29,7 +29,7 @@
           <p>
           <input class="with-gap" value="mobile" name="group3" type="radio" id="test5" ng-model="rideAdd.contactType" />
           <label for="test5">mobile</label>
-          <input class="with-gap" value="email" name="group3" type="radio" id="test6" ng-model="rideAdd.contactType"  />
+          <input class="with-gap " value="email" name="group3" type="radio" id="test6" ng-model="rideAdd.contactType"  />
           <label for="test6">email</label>
           <input class="with-gap" value="both" name="group3" type="radio" id="test7" ng-model="rideAdd.contactType" checked />
           <label for="test7">mobile and email</label>
@@ -41,7 +41,7 @@
           <label for="email">Email</label>
         </div>
         <div class="input-field" ng-if="rideAdd.contactType!='email'">
-          <input required placeholder="" id="phone" type="tel" class="validate" ng-model="rideAdd.ride.contact.mobile">
+          <input required placeholder="" id="phone" type="tel" class="validate active" ng-model="rideAdd.ride.contact.mobile">
           <label for="phone">Phone</label>
         </div>
 
