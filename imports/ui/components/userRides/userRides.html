@@ -1,0 +1,35 @@
+
+<h4 class="center">My Rides</h4>
+<div class="row container">
+    <div ng-repeat="ride in userRides.rides">
+      <div class="col s12">
+      <ul class="collection">
+          <li>
+             <span class="row s12">
+           <span class="col s9">     
+        <a ui-sref="rideDetails({ rideId: ride._id })">
+          <h6 style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
+        </a>
+         <span >
+              <i class="material-icons md-12" style="margin-right: 5px;line-height: 1.6">date_range</i> {{ride.date | date:'d MMM yy'}}
+              <i class="material-icons md-12">access_time</i>{{ride.time | date:'shortTime'}}
+              </span>
+           </span>
+            <span>
+             <br>
+               <span class="col s3">
+                    <a class="waves-effect waves-light btn-small" ui-sref="rideUpdate({ rideId: ride._id })"><b>EDIT</b></a>
+                    <a class="waves-effect waves-light btn-small" ng-click="userRides.deleteRide(ride._id)">
+                      or <b>DELETE</b>
+                    </a>
+               </span>
+            </span>
+        </span>
+      </li>
+    </ul>
+       </div>
+    </div>
+    <div ng-hide="userRides.rides.length>0">
+      <h4 class="center">You don't have any active rides at this moment</h4>
+    </div>
+  </div>

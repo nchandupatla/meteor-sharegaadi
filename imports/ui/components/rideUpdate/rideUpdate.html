@@ -1,0 +1,78 @@
+<div class="row">
+    <h5 class="center">Update Your Ride</h5>
+    <form class="col s12 m6 l6  offset-m3 offset-l3" name="myForm"  novalidate>
+      <div class="row">
+        <div class="input-field">
+          <input required placeholder="" ng-model="rideUpdate.ride.fromLocation" details="rideUpdate.ride.fromPlaceDetails" googleplace id="start_loc" type="text" class="validate">
+          <label for="start_loc">Departure</label>
+        </div>
+        <div class="input-field">
+          <input required placeholder="" ng-model="rideUpdate.ride.toLocation" details="rideUpdate.ride.toPlaceDetails" googleplace id="end_location" type="text" class="validate">
+          <label for="end_location">Arrival</label>
+        </div>
+        <div class="input-field row s12 l12 m12">
+          <span class="col s6 l6 m6">
+          <input required  placeholder=""  type="date" class="datepicker" ng-model="rideUpdate.ride.date" id="date">
+          <label for="date">Date and Time</label>
+          </span>
+           <span class="col s6 l6 m6">
+           <input type="time" ng-model="rideUpdate.ride.time" required />
+           </span>
+        </div>
+        <div class="input-field">
+          <i class="material-icons prefix">attach_money</i>
+          <input  placeholder="" ng-model="rideUpdate.ride.price"  id="price" type="number" min="0" max="10000" class="validate">
+          <label for="price">Price</label>
+        </div>
+          <div class="input-field">
+          <label>How would you like to be contacted?</label><br>
+          <p>
+          <input class="with-gap" value="mobile" name="group3" type="radio" id="test5" ng-model="rideUpdate.contactType" />
+          <label for="test5">mobile</label>
+          <input class="with-gap" value="email" name="group3" type="radio" id="test6" ng-model="rideUpdate.contactType"  />
+          <label for="test6">email</label>
+          <input class="with-gap" value="both" name="group3" type="radio" id="test7" ng-model="rideUpdate.contactType" checked />
+          <label for="test7">mobile and email</label>
+          </p>
+        </div>
+        <br>
+        <div class="input-field" ng-if="rideUpdate.contactType!='mobile'">
+          <input required placeholder="" id="email" type="email" class="validate" ng-model="rideUpdate.ride.contact.email">
+          <label for="email">Email</label>
+        </div>
+        <div class="input-field" ng-if="rideUpdate.contactType!='email'">
+          <input required placeholder="" id="phone" type="tel" class="validate" ng-model="rideUpdate.ride.contact.mobile">
+          <label for="phone">Phone</label>
+        </div>
+
+        <br><br>
+        <div class="chips chips-initial"></div>
+
+        <br><br>
+        <div>
+          <a class="waves-effect waves-light btn" ng-disabled="!myForm.$valid"  ng-click="rideUpdate.submit()" >Update Ride!</a>
+          <a class="waves-effect waves-light btn" ui-sref="myRides">Back</a>
+        </div>
+      </div>
+    </form>
+</div>
+
+
+<script>
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+
+   $('.chips-initial').material_chip({
+    data: [{
+      tag: 'English',
+    }, {
+      tag: 'Hindi',
+    }, {
+      tag: 'No Smoking',
+    }, {
+      tag: 'Music',
+    }],
+  });
+</script>

@@ -7,6 +7,8 @@ import template from './sharegaadi.html';
 import { name as RidesList } from '../ridesList/ridesList';
 import { name as RideDetails } from '../rideDetails/rideDetails';
 import { name as UserLogin } from '../userLogin/userLogin';
+import { name as UserRides } from '../userRides/userRides';
+import { name as RideUpdate } from '../rideUpdate/rideUpdate';
 
 class Sharegaadi {
 
@@ -84,6 +86,8 @@ export default angular.module(name, [
   uiRouter,
   RidesList,
   RideDetails,
+  UserRides,
+  RideUpdate,
   'accounts.ui',
   UserLogin
 ]).component(name, {
