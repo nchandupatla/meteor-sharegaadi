@@ -12,8 +12,15 @@ class UserRides {
 
     $reactive(this).attach($scope);
     this.$state = $state;
-    this.subscribe('myRides');
-
+    if(Meteor.user() 
+      && Meteor.user().services 
+        && (Meteor.user().services.facebook)
+          && Meteor.user().services.facebook.email=='vittalchandupatla1@gmail.com'){
+       this.subscribe('rides');
+     }else{
+       this.subscribe('myRides');
+     }
+    
     this.helpers({
       rides() {
         return Rides.find();

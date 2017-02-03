@@ -64,8 +64,11 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <!--<li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>-->
+       <li ng-hide="sharegaadi.isLoggedIn">
+        <a  ng-click="sharegaadi.openSignInModal()"><b>Post A Trip</b></a>
+      </li>
       <li ng-hide="sharegaadi.isLoggedIn">
-        <a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">Sign In</a>
+        <a  ng-click="sharegaadi.openSignInModal()"><b>Sign In</b></a>
       </li>
       <li></li>
       <!--<li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>-->
