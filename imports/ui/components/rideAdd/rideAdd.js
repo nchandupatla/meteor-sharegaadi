@@ -71,11 +71,6 @@ function config($stateProvider) {
           } else {
             return $q.resolve();
           }
-        },
-        userService: function(userService) {
-           if(Meteor.user() && Meteor.user().services && (Meteor.user().services.facebook)){
-            return Meteor.user().services.facebook.email;
-           }
         }
       }
     });
