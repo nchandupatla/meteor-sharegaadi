@@ -19,7 +19,6 @@ class RidesList {
     'ngInject';
 
     $reactive(this).attach($scope);
-
     this.perPage = 12;
     this.page = 1;
     this.sort = {
@@ -98,6 +97,7 @@ export default angular.module(name, [
   RidesMap,
   RideAdd,
   RideCreator,
+  'ngMap'
 ]).component(name, {
   template,
   controllerAs: name,

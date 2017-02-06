@@ -1,98 +1,55 @@
-<!--<ride-add ng-show="ridesList.isLoggedIn"></ride-add>-->
-<!--<div ng-hide="ridesList.isLoggedIn">
-  Log in to create a ride!
-</div>
-<br>-->
+
 <span class="row col s12">
   <span class="col s11 l10">
   <h5 class="center">Let's travel together, make new friends and split your fare</h5>
   </span>
-  <span class="col l2 m4 s12">
+<span class="col l2 m4 s12">
   <input class="left" type="search" ng-model="ridesList.searchText" placeholder="Search" />
   </span>
-        <!--<h4 class="header col s12 thin">Let's travel together, make new friends and split your fare</h4>
-       -->
-        <!--<p class="col s12">
-        <input class="with-gap" value="0" name="group3" type="radio" id="test5" checked ng-model="ridesList.type" />
-        <label for="test5">Ride Offers</label>
-        <input class="with-gap" value="1" name="group3" type="radio" id="test6" ng-model="ridesList.type"/>
-        <label for="test6">Ride Request</label>
-        </p>-->
-      </span>
-
-       <!--<nav>
-   
-  </nav>-->
-
-    <div class="row container col s12">
-      <!--<div class="input-field">
-         <i class="material-icons prefix right">search</i>
-          <input id="icon_prefix" type="search" ng-model="ridesList.searchText">
-          <label for="icon_prefix">Search available rides</label>
-      </div>-->
-        <!--<div class="col s6">
-        <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
-        </div>-->
-      </div>
+</span>
 
 <div class="row">
-    <div dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage"  total-items="ridesList.ridesCount">
-      <div class="col s12 m6 l4">
+  <div dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
+    <div class="col s12 m6 l4">
       <ul class="collection">
-      <li class="collection-item avatar">
-         <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
-        <a ui-sref="rideDetails({ rideId: ride._id })">
-          <h6 style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
-        </a>
-        <span class="row s12">
+        <li class="collection-item avatar card-panel grey lighten-4">
+          <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
+          <a ui-sref="rideDetails({ rideId: ride._id })">
+            <h6 style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
+          </a>
+          <span class="row s12">
             <span>
               <span class="col s10" style="margin-left: -14px">
               <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> {{ride.date | date:'d MMM yy'}}
               <i class="material-icons md-12">access_time</i>{{ride.time | date:'shortTime'}}
               </span>
-               <span class="col s2" style="margin-right: 10px">
+          <span class="col s2" style="margin-right: 10px">
               <a style="font-size: 120%">{{ride.price | currency:"$":0 }}</a>
                </span>
-            </span>
-            <!--<span class="col s2">
+          </span>
+          <!--<span class="col s2">
               <h5 style="margin: -1.1rem 0 -0.1rem 0"> {{ride.price | currency:"$":0 }} </h5>
             </span>-->
-        </span>
-        <h6 class="right hide-on-med-and-down" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
-      </li>
-    </ul>
-       </div>
+          </span>
+          <h6 class="right hide-on-med-and-down" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
+        <br>
+        </li>
+      </ul>
     </div>
-    
-    <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" ></dir-pagination-controls>
   </div>
-  <!--<div class="col s12">
-    <div class="row">
-        <input type="search" ng-model="ridesList.searchText" placeholder="Search Start Location" />
-        <rides-sort on-change="ridesList.sortChanged(sort)" property="fromLocation" order="1"></rides-sort>
-    </div>
-    <ul class="collection">
-      <li class="collection-item avatar" dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
-        <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
-        <a ui-sref="rideDetails({ rideId: ride._id })">
-          <h5>{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h5>
-        </a>
-        <p>Estimated Start Time on {{ride.date | date:'medium'}}</p>
-        <p>{{ride.description}}</p> <br>
-        <span ng-hide="!ride.rules.smoking" class="chip">No Smoking</span>
-        <span ng-hide="!ride.rules.music" class="chip">Music</span>
-        <span ng-hide="!ride.rules.foodDrinks" class="chip">Food & Drinks</span>
-        <h4 class="secondary-content">
-          {{ride.price | currency:"$":0 }}
-        </h4>
-        <h6 class="right hide-on-med-and-down">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
-      </li>
-    </ul>
-    <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)" class="right hide-on-med-and-down"></dir-pagination-controls>
-  </div>-->
+  <dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
+</div>
+  <div class="container">
+      <div style="height:500px">
+        <ng-map>
+          <directions ng-repeat="ride in ridesList.rides"
+            draggable="false"
+            origin="{{ride.fromLocation}}"
+            destination="{{ride.toLocation}}">
+          </directions>
+        </ng-map>
+      </div>
+    </div>
 
-<!--
- <div class="row container">
-    <rides-map rides="ridesList.rides"></rides-map>
-  </div>-->
+    <br><br>

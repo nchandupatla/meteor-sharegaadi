@@ -25,9 +25,16 @@
 
 </div>
 </div>
-<!--<div class="row">
-<div class="col s6 offset-s2">
-<ride-map location="location"></ride-map>
-</div>
-</div>-->
+
+  <div class="container">
+      <div style="height:500px">
+        <ng-map>
+          <directions
+            draggable="false"
+            origin="{{rideDetails.ride.fromLocation}}"
+            destination="{{rideDetails.ride.toLocation}}">
+          </directions>
+        </ng-map>
+      </div>
+    </div>
 
