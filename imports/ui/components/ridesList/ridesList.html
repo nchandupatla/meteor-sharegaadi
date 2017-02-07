@@ -41,15 +41,13 @@
 </div>
 </div>
   <div class="container">
-      <div style="height:500px">
+      <div>
         <ng-map>
           <directions ng-repeat="ride in ridesList.rides"
-            draggable="false"
+            draggable="false",
             origin="{{ride.fromLocation}}"
             destination="{{ride.toLocation}}">
           </directions>
         </ng-map>
       </div>
     </div>
-
-    <br><br>
