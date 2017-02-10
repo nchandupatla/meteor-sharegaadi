@@ -62,6 +62,9 @@
       <li ng-hide="sharegaadi.isLoggedIn">
         <a ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a>
       </li>
+       <li ng-show="sharegaadi.isLoggedIn">
+        <a ui-sref="addRide"><b>POST A TRIP</b></a>
+      </li>
       <li ng-hide="sharegaadi.isLoggedIn">
         <a ng-click="sharegaadi.openSignInModal()"><b>SIGN IN</b></a>
       </li>
@@ -73,13 +76,16 @@
       </li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
-      <li ng-show="sharegaadi.isLoggedIn"><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a></li>
+      <li ng-show="sharegaadi.isLoggedIn">
+       <a> {{ sharegaadi.currentUser | displayNameFilter }}</a>
+      </li>
       <li><a class="waves-effect waves-light btn" ui-sref="rides">Home</a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">SIGN IN</a></li>
       <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
       <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ui-sref="myRides">Manage Rides</a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">POST A TRIP</a></li>
       <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
     </ul>
   </div>
 </nav><br>
@@ -90,24 +96,24 @@
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
-                <h5 class="white-text">Footer Content</h5>
-                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                <h5 class="white-text">Vimaana Rideshare</h5>
+                <p class="grey-text text-lighten-4">The new travel portal for indians in usa.</p>
               </div>
               <div class="col l4 offset-l2 s12">
-                <h5 class="white-text">Links</h5>
+                 <img src="img/google-play-badge.png" style="height: 85px; width: 200px">
+                 <!--<img src="img/Download_on_the_App_Store_Badge_US-UK_135x40.png" style="height: 55px; width: 180px">
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
-                </ul>
+                  <li>
+                  
+                    </li>
+                </ul>-->
               </div>
             </div>
           </div>
           <div class="footer-copyright">
             <div class="container">
-            © 2014 Copyright Text
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2017 Copyright
+            <!--<a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
             </div>
           </div>
         </footer>

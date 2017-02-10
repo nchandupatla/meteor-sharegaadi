@@ -13,15 +13,16 @@
         <div class="input-field row s12 l12 m12">
           <span class="col s6 l6 m6">
           <input required  placeholder=""  type="date" class="datepicker" ng-model="rideAdd.ride.date" id="date">
-          <label for="date">Date and Time</label>
+          <label for="date">Date</label>
           </span>
            <span class="col s6 l6 m6">
+             <label for="time">Time</label>
            <input type="time" ng-model="rideAdd.ride.time" required />
            </span>
         </div>
         <div class="input-field">
           <i class="material-icons prefix">attach_money</i>
-          <input  placeholder="" ng-model="rideAdd.ride.price"  id="price" type="number" min="0" max="10000" class="validate">
+          <input  placeholder="" ng-model="rideAdd.ride.price"  id="price" type="number" min.length="2" max.length="4" class="validate">
           <label for="price">Price</label>
         </div>
           <div class="input-field">
@@ -82,7 +83,8 @@
 <script>
 $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    min: new Date()
   });
 
    $('.chips-initial').material_chip({

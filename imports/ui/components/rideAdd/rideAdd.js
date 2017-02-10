@@ -10,6 +10,7 @@ class RideAdd {
   constructor($scope, $state, $reactive) {
     this.$state = $state;
     $reactive(this).attach($scope);
+
     this.ride = {};
     this.ride.rules = {};
     this.ride.contact = {};

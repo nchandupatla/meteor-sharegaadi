@@ -3,3 +3,10 @@
 .material-icons.md-36 { font-size: 36px; }
 .material-icons.md-48 { font-size: 48px; }
 .material-icons.md-12 { font-size: 14px; }
+.search-span {
+    float: right;
+    margin-right: 6px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 2;
+}
