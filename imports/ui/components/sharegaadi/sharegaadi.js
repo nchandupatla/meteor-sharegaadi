@@ -61,6 +61,9 @@ openSignInModal(){
     $('#signInModal').openModal();
 }
 
+isCordova(){
+  return Meteor.isCordova;
+}
  facebookLogin() {
     $('#signInModal').closeModal();
     Meteor.loginWithFacebook({

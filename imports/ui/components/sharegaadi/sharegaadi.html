@@ -60,7 +60,7 @@
     </a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <!--<li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>-->
+      <li><a  ui-sref="rides"><b>HOME</b></a></li>
       <li ng-hide="sharegaadi.isLoggedIn">
         <a ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a>
       </li>
@@ -94,7 +94,7 @@
 <div>
   <div ui-view=""></div>
 </div>
-<footer class="page-footer">
+<footer class="page-footer" ng-hide="sharegaadi.isCordova()">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">
