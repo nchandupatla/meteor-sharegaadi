@@ -61,6 +61,10 @@ class RidesList {
     }
   }
 
+  isCordova(){
+  return Meteor.isCordova;
+}
+
   isOwner(ride) {
     return this.isLoggedIn && ride.owner === this.currentUserId;
   }

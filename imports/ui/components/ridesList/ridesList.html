@@ -1,7 +1,7 @@
 
 <span class="row col s12">
   <span class="col s11 l10">
-  <h4 class="center">Let's travel together, make new friends and split your fare{{$ctrl.sampleData}}</h4>
+  <h4 class="center" ng-hide="ridesList.isCordova()">Let's travel together, make new friends and split your fare{{$ctrl.sampleData}}</h4>
   </span>
 <span class="col l2 m4 s12">
   <input type="text" ng-model="ridesList.searchText" placeholder="Search" />
@@ -53,3 +53,4 @@
         </ng-map>
       </div>
     </div>
+    <br>  <br>
