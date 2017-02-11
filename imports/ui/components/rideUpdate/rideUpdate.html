@@ -13,10 +13,11 @@
         <div class="input-field row s12 l12 m12">
           <span class="col s6 l6 m6">
           <input required  placeholder=""  type="date" class="datepicker" ng-model="rideUpdate.ride.date" id="date">
-          <label for="date">Date and Time</label>
+          <label for="date">Date</label>
           </span>
-           <span class="col s6 l6 m6">
-           <input type="time" ng-model="rideUpdate.ride.time" required />
+          <span class="col s6 l6 m6">
+          <input type="time" ng-model="rideUpdate.ride.time" required />
+          <label for="date">Time</label>
            </span>
         </div>
         <div class="input-field">
@@ -60,8 +61,9 @@
 
 <script>
 $('.datepicker').pickadate({
-    selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    selectMonths: true,
+    selectYears: 15,
+    min: new Date() 
   });
 
    $('.chips-initial').material_chip({

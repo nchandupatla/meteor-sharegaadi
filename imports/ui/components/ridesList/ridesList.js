@@ -53,11 +53,12 @@ class RidesList {
         return Meteor.userId();
       }
     });
+  }
 
-    // $rootScope.$on("CallParentMethod", function(data){
-    //   console.log('dsdsf '+data);
-    //        $scope.searchText=data;
-    //     });
+  noRideMsg(rides){
+    if(rides.length==0){
+      return "Sorry, No Rides Available";
+    }
   }
 
   isOwner(ride) {

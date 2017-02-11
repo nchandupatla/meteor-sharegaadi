@@ -21,8 +21,8 @@
            </span>
         </div>
         <div class="input-field">
-          <i class="material-icons prefix">attach_money</i>
-          <input  placeholder="" ng-model="rideAdd.ride.price"  id="price" type="number" min.length="2" max.length="4" class="validate">
+          <i class="material-icons prefix md-24">attach_money</i>
+          <input limit-to="3" placeholder="" ng-model="rideAdd.ride.price"  id="price" type="number" class="validate">
           <label for="price">Price</label>
         </div>
           <div class="input-field">
@@ -43,28 +43,13 @@
         </div>
         <div class="input-field" ng-if="rideAdd.contactType!='email'">
           <input required placeholder="" id="phone" type="tel" class="validate active" ng-model="rideAdd.ride.contact.mobile">
-          <label for="phone">Phone</label>
+          <label for="phone">Mobile</label>
         </div>
-
-        <!--<div class="input-field">
-          <label>Preferences and custom tags</label><br>
-          <p>
-          <input type="checkbox" class="filled-in" id="filled-in-box1" ng-model="rideAdd.ride.rules.smoking" />
-          <label for="filled-in-box1">Smoking</label>
-
-          <input type="checkbox" class="filled-in" id="filled-in-box2" ng-model="rideAdd.ride.rules.foodDrinks" />
-          <label for="filled-in-box2">Food & Drinks</label>
-
-          <input type="checkbox" class="filled-in" id="filled-in-box3" ng-model="rideAdd.ride.rules.music" />
-          <label for="filled-in-box3">Music</label>
-          </p>
-        </div>-->
         <br><br>
         <div class="chips chips-initial"></div>
-
         <br><br>
         <div>
-          <a class="waves-effect waves-light btn" ng-disabled="!myForm.$valid"  ng-click="rideAdd.submit()" >Add Ride!</a>
+          <a class="waves-effect waves-light btn" ng-disabled="!rideAdd.isFormValid()"  ng-click="rideAdd.submit()" >Add Ride!</a>
           <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
         </div>
       </div>

@@ -1,14 +1,14 @@
 
 <span class="row col s12">
   <span class="col s11 l10">
-  <h5 class="center">Let's travel together, make new friends and split your fare{{$ctrl.sampleData}}</h5>
+  <h4 class="center">Let's travel together, make new friends and split your fare{{$ctrl.sampleData}}</h4>
   </span>
 <span class="col l2 m4 s12">
   <input type="text" ng-model="ridesList.searchText" placeholder="Search" />
   <span class="fa fa-search fa-lg search-span" ></span>
   </span>
 </span>
-
+<br>
 <div class="row">
   <div dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
     <div class="col s12 m6 l4">
@@ -28,9 +28,6 @@
               <a style="font-size: 120%">{{ride.price | currency:"$":0 }}</a>
                </span>
           </span>
-          <!--<span class="col s2">
-              <h5 style="margin: -1.1rem 0 -0.1rem 0"> {{ride.price | currency:"$":0 }} </h5>
-            </span>-->
           </span>
           <h6 class="right hide-on-med-and-down" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
         <br>
@@ -42,10 +39,7 @@
 <dir-pagination-controls  on-page-change="ridesList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
 <div class="row">
-<div ng-if="ridesList.rides.length==0">
-<h4 class="center">Sorry, no rides available</h4>
-</div>
-
+<h4 class="center">{{ridesList.noRideMsg(ridesList.rides)}}</h4>
 </div>
 <br>
   <div class="container">
