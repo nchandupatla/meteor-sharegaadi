@@ -10,7 +10,8 @@
         <br>
      <span class="row col s12">
       <span class="col l4 m6 s12 offset-l4">
-      <input style="border-radius: 4px;" class="brown" type="text" ng-model="ridesList.searchText" placeholder="      Search" />
+      <input style="border-radius: 4px;" type="text" ng-model="ridesList.searchText" placeholder="  SEARCH..." 
+          onfocus="this.placeholder = ''" onblur="this.placeholder = 'SEARCH...'" />
       <span class="fa fa-search fa-lg search-span"></span>
       </span>
      </span>
@@ -23,7 +24,7 @@
   <div dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
     <div class="col s12 m6 l4">
       <ul class="collection">
-        <li class="collection-item avatar card-panel grey lighten-4">
+        <li class="collection-item avatar card-panel grey lighten-3">
           <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
           <a ui-sref="rideDetails({ rideId: ride._id })">
             <h6 style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
