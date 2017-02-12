@@ -67,7 +67,8 @@ isCordova(){
  facebookLogin() {
     $('#signInModal').closeModal();
     Meteor.loginWithFacebook({
-      loginStyle:"redirect"
+      loginStyle:"redirect",
+      authType: 'reauthenticate'
     }, this.$bindToContext((error) => {
       if (error) {
         console.log(error); //If there is any error, will get error here

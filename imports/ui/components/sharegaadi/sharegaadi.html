@@ -1,7 +1,7 @@
 <div id="signInModal" class="modal">
   <div class="modal-content">
     <h4 class="center">Sign In</h4>
-    <div class="card blue-grey darken-1">
+    <div class="card brown-grey darken-1">
       <div class="card-content white-text center">
         <a class="waves-effect waves-light loginBtn loginBtn--facebook btn center" ng-click="sharegaadi.facebookLogin()">Facebook Login</a>
         <p>Currently we support only Facebook login. We will only use your facebook profile pic, name and email address.</p>
@@ -50,31 +50,32 @@
   <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
 </ul>
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper white">
     <!--<img src="img/vimaana_logo.png" style="height: 35px; width: 50px">-->
     <a href="/" class="brand-logo">
-     <i class="fa fa-vimeo fa-2x" aria-hidden="true"></i>
+     <!--<i class="fa fa-vimeo fa-lg brown" aria-hidden="true"></i>-->
       <!--<i class="material-icons md-48  hide-on-med-and-down">directions_car</i>-->
-      <!--<b style="color: black">Vimaana</b> -->
-      Ride
+      <b class="brown-text text-darken-2" style="font-style: italic;">Vimaana</b>
+      <span class="green-text text-darken-2" style="font-style: oblique;">Ride</span>
     </a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse brown-text text-darken-2">
+      <i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <li><a  ui-sref="rides"><b>HOME</b></a></li>
+      <li><a class="brown-text text-darken-2" ui-sref="rides"><b>HOME</b></a></li>
       <li ng-hide="sharegaadi.isLoggedIn">
-        <a ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a>
+        <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a>
       </li>
        <li ng-show="sharegaadi.isLoggedIn">
-        <a ui-sref="addRide"><b>POST A TRIP</b></a>
+        <a class="brown-text text-darken-2" ui-sref="addRide"><b>POST A TRIP</b></a>
       </li>
       <li ng-hide="sharegaadi.isLoggedIn">
-        <a ng-click="sharegaadi.openSignInModal()"><b>SIGN IN</b></a>
+        <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>SIGN IN</b></a>
       </li>
       <li></li>
       <!--<li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>-->
       <!-- Dropdown Trigger -->
       <li ng-show="sharegaadi.isLoggedIn">
-        <a class="dropdown-button1" href="#!" data-activates="dropdown2">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a>
+        <a class="brown-text text-darken-2 dropdown-button1" href="#!" data-activates="dropdown2">{{ sharegaadi.currentUser | displayNameFilter }}<i class="material-icons right">arrow_drop_down</i></a>
       </li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
@@ -90,7 +91,7 @@
       <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
     </ul>
   </div>
-</nav><br>
+</nav>
 <div>
   <div ui-view=""></div>
 </div>

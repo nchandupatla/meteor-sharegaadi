@@ -55,9 +55,9 @@ class RidesList {
     });
   }
 
-  noRideMsg(rides){
-    if(rides.length==0){
-      return "Sorry, No Rides Available";
+  noRides(){
+    if(this.rides.length==0 && this.searchText.length>0){
+      return true;
     }
   }
 

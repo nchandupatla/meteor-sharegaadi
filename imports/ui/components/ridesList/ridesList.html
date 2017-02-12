@@ -1,13 +1,33 @@
-
-<span class="row col s12">
-  <span class="col s11 l10">
-  <h4 class="center" ng-hide="ridesList.isCordova()">Let's travel together, make new friends and split your fare{{$ctrl.sampleData}}</h4>
-  </span>
-<span class="col l2 m4 s12">
-  <input type="text" ng-model="ridesList.searchText" placeholder="Search" />
-  <span class="fa fa-search fa-lg search-span" ></span>
-  </span>
-</span>
+<div class="slider">
+  <ul class="slides">
+    <li>
+      <img src="img/animals.jpg">
+      <!-- random image -->
+      <div class="caption center-align">
+        <h3><b>Welcome to Vimaana</b></h3>
+        <h5 class="light grey-text text-lighten-3">Let's travel together, make new friends and split your fare.</h5>
+     
+      </div>
+    </li>
+     <li>
+      <img src="img/holy.jpg">
+      <!-- random image -->
+      <div class="caption right-align">
+        <h3><b>Welcome to Vimaana</b></h3>
+        <h5 class="light grey-text text-lighten-3">Let's travel together, make new friends and split your fare.</h5>
+     
+      </div>
+    </li>
+    <li>
+      <img src="img/charminar.jpg">
+      <!-- random image -->
+      <div class="caption left-align">
+        <h3 class="black-text text-darken-2"><b>Welcome to Vimaana</b></h3>
+        <h5 class="light black-text text-lighten-3">Let's travel together, make new friends and split your fare.</h5>
+      </div>
+    </li>
+  </ul>
+</div>
 <br>
 <div class="row">
   <div dir-paginate="ride in ridesList.rides | itemsPerPage: ridesList.perPage" total-items="ridesList.ridesCount">
@@ -30,27 +50,29 @@
           </span>
           </span>
           <h6 class="right hide-on-med-and-down" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
-        <br>
+          <br>
         </li>
       </ul>
     </div>
   </div>
 </div>
-<dir-pagination-controls  on-page-change="ridesList.pageChanged(newPageNumber)"></dir-pagination-controls>
+<dir-pagination-controls on-page-change="ridesList.pageChanged(newPageNumber)"></dir-pagination-controls>
 </div>
 <div class="row">
-<h4 class="center">{{ridesList.noRideMsg(ridesList.rides)}}</h4>
+  <h4 class="center" ng-show="ridesList.noRides()">Sorry, No Rides Available</h4>
 </div>
 <br>
-  <div class="container">
-      <div>
-        <ng-map>
-          <directions ng-repeat="ride in ridesList.rides"
-            draggable="false",
-            origin="{{ride.fromLocation}}"
-            destination="{{ride.toLocation}}">
-          </directions>
-        </ng-map>
-      </div>
-    </div>
-    <br>  <br>
+<div class="container">
+  <div ng-hide="ridesList.noRides()">
+    <ng-map>
+      <directions ng-repeat="ride in ridesList.rides" draggable="false" , origin="{{ride.fromLocation}}" destination="{{ride.toLocation}}">
+      </directions>
+    </ng-map>
+  </div>
+</div>
+<br><br>
+<script>
+  $(document).ready(function () {
+   $('.slider').slider();
+  })
+</script>
