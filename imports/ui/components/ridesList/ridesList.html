@@ -2,28 +2,18 @@
   <ul class="slides">
     <li>
       <img src="img/animals.jpg">
-      <!-- random image -->
       <div class="caption center-align">
-        <h3><b>Welcome to Vimaana</b></h3>
-        <h5 class="light grey-text text-lighten-3">Let's travel together, make new friends and split your fare.</h5>
-     
-      </div>
-    </li>
-     <li>
-      <img src="img/holy.jpg">
-      <!-- random image -->
-      <div class="caption right-align">
-        <h3><b>Welcome to Vimaana</b></h3>
-        <h5 class="light grey-text text-lighten-3">Let's travel together, make new friends and split your fare.</h5>
-     
-      </div>
-    </li>
-    <li>
-      <img src="img/charminar.jpg">
-      <!-- random image -->
-      <div class="caption left-align">
-        <h3 class="black-text text-darken-2"><b>Welcome to Vimaana</b></h3>
-        <h5 class="light black-text text-lighten-3">Let's travel together, make new friends and split your fare.</h5>
+        <!--<h3><b>Welcome to Vimaana</b></h3>-->
+        <h5>
+          <b>Let's travel together, make new friends and split your fare</b>
+          </h5>
+        <br>
+     <span class="row col s12">
+      <span class="col l4 m6 s12 offset-l4">
+      <input style="border-radius: 4px;" class="brown" type="text" ng-model="ridesList.searchText" placeholder="      Search" />
+      <span class="fa fa-search fa-lg search-span"></span>
+      </span>
+     </span>
       </div>
     </li>
   </ul>
@@ -73,6 +63,9 @@
 <br><br>
 <script>
   $(document).ready(function () {
-   $('.slider').slider();
+   $('.slider').slider(
+     {indicators:false,
+      height:300}
+   );
   })
 </script>

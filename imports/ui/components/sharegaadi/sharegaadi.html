@@ -82,41 +82,27 @@
       <li ng-show="sharegaadi.isLoggedIn">
        <a> {{ sharegaadi.currentUser | displayNameFilter }}</a>
       </li>
-      <li><a class="waves-effect waves-light btn" ui-sref="rides">Home</a></li>
-      <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">SIGN IN</a></li>
-      <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>
-      <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ui-sref="myRides">Manage Rides</a></li>
-      <li ng-hide="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.openSignInModal()">POST A TRIP</a></li>
-      <li><a class="waves-effect waves-light btn" ng-click="sharegaadi.openHowItWorksModal()">How it works</a></li>
-      <li ng-show="sharegaadi.isLoggedIn"><a class="waves-effect waves-light btn" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
+      <li><a class="brown-text text-darken-2" ui-sref="rides"><b>Home</a></li>
+      <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>SIGN IN</b></a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="addRide"><b>Post A Trip</b></a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="myRides"><b>Manage Rides</b></a></li>
+      <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a></li>
+      <li><a class="brown-text text-darken-2" ng-click="sharegaadi.openHowItWorksModal()"><b>How it works</b></a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn"><b>Logout</b></a></li>
     </ul>
   </div>
 </nav>
 <div>
   <div ui-view=""></div>
 </div>
-<footer class="page-footer" ng-hide="sharegaadi.isCordova()">
+<footer class="page-footer white" ng-hide="sharegaadi.isCordova()">
           <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="white-text">Vimaana Rideshare</h5>
-                <p class="grey-text text-lighten-4">The new travel portal for indians in usa.</p>
-              </div>
-              <div class="col l4 offset-l2 s12">
-                 <img src="img/google-play-badge.png" style="height: 85px; width: 200px">
-                 <!--<img src="img/Download_on_the_App_Store_Badge_US-UK_135x40.png" style="height: 55px; width: 180px">
-                <ul>
-                  <li>
-                  
-                    </li>
-                </ul>-->
-              </div>
-            </div>
+          
           </div>
-          <div class="footer-copyright">
+          <div class="footer-copyright brown">
             <div class="container">
             © 2017 Copyright
-            <a class="grey-text text-lighten-4 right" href="#!">Feedback</a>
+            <a class="grey-text text-lighten-4 right" href="#!">Feedback?</a>
             </div>
           </div>
         </footer>
