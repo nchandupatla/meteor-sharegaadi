@@ -57,7 +57,12 @@ closeHowItWorksModal(){
     $('#modal1').closeModal();
 }
 
-openSignInModal(){
+openSignInModal(isLoggedIn){
+    if(isLoggedIn){
+      this.isPosting=false
+    }else{
+      this.isPosting=true
+    }
     $('#signInModal').openModal();
 }
 

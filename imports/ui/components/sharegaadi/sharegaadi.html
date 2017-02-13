@@ -1,6 +1,7 @@
 <div id="signInModal" class="modal">
   <div class="modal-content">
-    <h4 class="center" style="font-style: italic;">Sign In</h4>
+    <h4 class="center" style="font-style: italic;" ng-hide="sharegaadi.isPosting">Sign In </h4>
+    <h4 class="center" style="font-style: italic;" ng-show="sharegaadi.isPosting">Please Sign In To Post A Trip</h4>
     <div class="card brown-grey darken-1">
       <div class="card-content white-text center">
         <a class="waves-effect waves-light btn center" ng-click="sharegaadi.facebookLogin()">Facebook Login</a>
@@ -25,20 +26,20 @@
      <!--<i class="fa fa-vimeo fa-lg brown" aria-hidden="true"></i>-->
       <!--<i class="material-icons md-48  hide-on-med-and-down">directions_car</i>-->
       <b class="brown-text text-darken-2" style="font-style: italic;">Vimaana</b>
-      <span class="light orange-text text-darken-2">Ride</span>
+      <span class="light orange-text text-darken-3">Ride</span>
     </a>
     <a href="#" data-activates="mobile-demo" class="button-collapse brown-text text-darken-2">
       <i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
       <li><a class="brown-text text-darken-2" ui-sref="rides"><b>HOME</b></a></li>
       <li ng-hide="sharegaadi.isLoggedIn">
-        <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a>
+        <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(false);"><b>POST A TRIP</b></a>
       </li>
        <li ng-show="sharegaadi.isLoggedIn">
         <a class="brown-text text-darken-2" ui-sref="addRide"><b>POST A TRIP</b></a>
       </li>
       <li ng-hide="sharegaadi.isLoggedIn">
-        <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>SIGN IN</b></a>
+        <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(true)"><b>SIGN IN</b></a>
       </li>
       <li></li>
       <!--<li><a class="waves-effect waves-light btn" ui-sref="addRide">Post A Trip</a></li>-->
@@ -52,10 +53,10 @@
        <a> {{ sharegaadi.currentUser | displayNameFilter }}</a>
       </li>
       <li><a class="brown-text text-darken-2" ui-sref="rides"><b>HOME</a></li>
-      <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>SIGN IN</b></a></li>
+      <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(true)"><b>SIGN IN</b></a></li>
       <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="addRide"><b>POST A TRIP</b></a></li>
       <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="myRides"><b>MANAGE RIDES</b></a></li>
-      <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal()"><b>POST A TRIP</b></a></li>
+      <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(false)"><b>POST A TRIP</b></a></li>
       <!--<li><a class="brown-text text-darken-2" ng-click="sharegaadi.openHowItWorksModal()"><b>How it works</b></a></li>-->
       <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn"><b>LOGOUT</b></a></li>
     </ul>
@@ -64,7 +65,7 @@
 <div>
   <div ui-view=""></div>
 </div>
-<footer class="page-footer white" ng-hide="sharegaadi.isCordova()">
+<footer class="page-footer white">
           <div class="container">
           
           </div>
@@ -76,7 +77,7 @@
           </div>
         </footer>
 <div class="fixed-action-btn" ng-show="sharegaadi.isLoggedIn">
-  <a class="btn-floating btn-large brown lighten-1" ui-sref="addRide">
+  <a class="btn-floating btn-large orange darken-3" ui-sref="addRide">
     <i class="large material-icons">add</i>
   </a>
 </div>
