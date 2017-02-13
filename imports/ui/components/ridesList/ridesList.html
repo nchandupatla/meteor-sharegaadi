@@ -6,15 +6,15 @@
         <!--<h3><b>Welcome to Vimaana</b></h3>-->
         <h5>
           <b>Let's travel together, make new friends and split your fare</b>
-          </h5>
-        <br>
-     <span class="row col s12">
+        </h5>
+        <br><br>
+        <span class="row col s12">
       <span class="col l4 m6 s12 offset-l4">
       <input style="border-radius: 4px;" type="text" ng-model="ridesList.searchText" placeholder="  SEARCH..." 
           onfocus="this.placeholder = ''" onblur="this.placeholder = 'SEARCH...'" />
       <span class="fa fa-search fa-lg search-span"></span>
-      </span>
-     </span>
+        </span>
+        </span>
       </div>
     </li>
   </ul>
@@ -27,20 +27,24 @@
         <li class="collection-item avatar card-panel grey lighten-3">
           <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
           <a ui-sref="rideDetails({ rideId: ride._id })">
-            <h6 style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
+            <h6 class="brown-text text-darken-2" style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
           </a>
           <span class="row s12">
             <span>
               <span class="col s10" style="margin-left: -14px">
-              <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> {{ride.date | date:'d MMM yy'}}
-              <i class="material-icons md-12">access_time</i>{{ride.time | date:'shortTime'}}
+              <i class="material-icons md-12 left" style="margin-right: 5px;line-height: 1.6">date_range</i> 
+              <span class="brown-text text-darken-2">
+              {{ride.date | date:'d MMM yy'}}
               </span>
+          <i class="material-icons md-12">access_time</i>
+          <span class="brown-text text-darken-2">{{ride.time | date:'shortTime'}}</span>
+          </span>
           <span class="col s2" style="margin-right: 10px">
-              <a style="font-size: 120%">{{ride.price | currency:"$":0 }}</a>
+              <a class="brown-text text-darken-2 bold" style="font-size: 120%">{{ride.price | currency:"$":0 }}</a>
                </span>
           </span>
           </span>
-          <h6 class="right hide-on-med-and-down" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
+          <h6 class="right hide-on-med-and-down brown-text text-darken-2" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
           <br>
         </li>
       </ul>
@@ -64,9 +68,9 @@
 <br><br>
 <script>
   $(document).ready(function () {
-   $('.slider').slider(
-     {indicators:false,
-      height:300}
-   );
+    $('.slider').slider({
+      indicators: false,
+      height: 325
+    });
   })
 </script>
