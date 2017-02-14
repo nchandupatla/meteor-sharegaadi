@@ -13,7 +13,6 @@ class RideDetails {
     'ngInject';
 
     $reactive(this).attach($scope);
-
     this.rideId = $stateParams.rideId;
 
     this.subscribe('rides');

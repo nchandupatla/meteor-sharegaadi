@@ -55,10 +55,10 @@
       <li><a class="brown-text text-darken-2" ui-sref="rides"><b>HOME</a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(true)"><b>SIGN IN</b></a></li>
       <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="addRide"><b>POST A TRIP</b></a></li>
-      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="myRides"><b>MANAGE RIDES</b></a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ui-sref="myRides" style="color: #795548"><b>MANAGE RIDES</b></a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(false)"><b>POST A TRIP</b></a></li>
       <!--<li><a class="brown-text text-darken-2" ng-click="sharegaadi.openHowItWorksModal()"><b>How it works</b></a></li>-->
-      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn"><b>LOGOUT</b></a></li>
+      <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn" style="color: #795548"><b>LOGOUT</b></a></li>
     </ul>
   </div>
 </nav>
