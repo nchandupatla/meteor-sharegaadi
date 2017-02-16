@@ -48,6 +48,7 @@ constructor($scope, $reactive, $state, $rootScope) {
  logout() {
     Accounts.logout();
     this.$state.go('rides');
+    $('#signOutModal').openModal();
   }
   
 openHowItWorksModal(){

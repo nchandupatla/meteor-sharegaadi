@@ -9,7 +9,7 @@
         </h5>
         <br><br>
         <span class="row col s12">
-      <span class="col l4 m6 s12 offset-l4">
+      <span class="col l4 m6 s12 offset-l4 offset-m3">
       <input class="white brown-text" style="border-radius: 4px;" type="text" ng-model="ridesList.searchText" placeholder="  SEARCH..." 
           capitalize onfocus="this.placeholder = ''" onblur="this.placeholder = '  SEARCH...'" />
       <span class="fa fa-search fa-lg search-span brown-text"></span>
@@ -18,7 +18,7 @@
       </div>
     </li>
     <li>
-      <img src="img/holy.jpg">
+      <img src="img/volkswagen.jpg">
       <div class="caption center-align">
         <!--<h3><b>Welcome to Vimaana</b></h3>-->
         <h5>
@@ -26,7 +26,7 @@
         </h5>
         <br><br>
         <span class="row col s12">
-      <span class="col l4 m6 s12 offset-l4">
+      <span class="col l4 m6 s12 offset-l4 offset-m3">
       <input class="white brown-text" style="border-radius: 4px;" type="text" ng-model="ridesList.searchText" placeholder="  SEARCH..." 
           capitalize onfocus="this.placeholder = ''" onblur="this.placeholder = '  SEARCH...'" />
       <span class="fa fa-search fa-lg search-span brown-text"></span>
@@ -43,7 +43,7 @@
         </h5>
         <br><br>
         <span class="row col s12">
-      <span class="col l4 m6 s12 offset-l4">
+     <span class="col l4 m6 s12 offset-l4 offset-m3">
       <input class="white brown-text" style="border-radius: 4px;" type="text" ng-model="ridesList.searchText" placeholder="  SEARCH..." 
           capitalize onfocus="this.placeholder = ''" onblur="this.placeholder = '  SEARCH...'" />
       <span class="fa fa-search fa-lg search-span brown-text"></span>
@@ -70,15 +70,15 @@
               <span class="brown-text text-darken-2">
               {{ride.date | date:'d MMM yy'}}
               </span>
-          <i class="material-icons md-12 brown-text hide-on-med-and-down">access_time</i>
-          <span class="brown-text text-darken-2 hide-on-med-and-down">{{ride.time | date:'shortTime'}}</span>
+          <i class="material-icons md-12 brown-text hide-on-small-only">access_time</i>
+          <span class="brown-text text-darken-2 hide-on-small-only">{{ride.time | date:'shortTime'}}</span>
           </span>
           <span class="col s2 " style="margin-right: 10px">
               <a class="brown-text text-darken-2 bold" style="font-size: 120%"><b>{{ride.price | currency:"$":0 }}</b></a>
                </span>
           </span>
           </span>
-          <h6 class="right hide-on-med-and-down brown-text text-darken-2" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
+          <h6 class="right hide-on-small-only brown-text text-darken-2" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
           <br>
         </li>
       </ul>

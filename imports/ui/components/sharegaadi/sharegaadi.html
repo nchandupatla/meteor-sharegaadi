@@ -12,6 +12,14 @@
   </div>
 </div>
 
+<div id="signOutModal" class="modal">
+  <div class="modal-content">
+    <h4 class="center" style="font-style: italic;" ng-hide="sharegaadi.isPosting"> Successfully logged out </h4>
+    <h5 class="center">Thank you for using Vimaana Rideshare</h5>
+    <p>Note: Your facebook session could be still active as you have only logged out of Vimaana.</p>
+  </div>
+</div>
+
 <ul id="dropdown1" class="dropdown-content">
   <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
 </ul>
@@ -63,7 +71,7 @@
   </div>
 </nav>
 <div>
-  <div ui-view=""></div>
+  <div ui-view="" autoscroll="true"></div>
 </div>
 <footer class="page-footer white">
           <div class="container">
@@ -71,7 +79,7 @@
           </div>
           <div class="footer-copyright brown">
             <div class="container">
-            © 2017 Copyright
+            © 2017 Copyrights Team Vimaana
             <a class="grey-text text-lighten-4 right" href="#!">Feedback?</a>
             </div>
           </div>
