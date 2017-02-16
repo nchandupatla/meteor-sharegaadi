@@ -67,7 +67,8 @@
       <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(false)"><b>POST A TRIP</b></a></li>
       <!--<li><a class="brown-text text-darken-2" ng-click="sharegaadi.openHowItWorksModal()"><b>How it works</b></a></li>-->
       <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn" style="color: #795548"><b>LOGOUT</b></a></li>
-    </ul>
+     <li><a class="brown-text text-darken-2" ui-sref="feedback">FEEDBACK</a></li>
+     </ul>
   </div>
 </nav>
 <div>
@@ -80,7 +81,7 @@
           <div class="footer-copyright brown">
             <div class="container">
             © 2017 Copyrights Team Vimaana
-            <a class="grey-text text-lighten-4 right" href="#!">Feedback?</a>
+            <a class="grey-text text-lighten-4 right" ui-sref="feedback">Feedback?</a>
             </div>
           </div>
         </footer>

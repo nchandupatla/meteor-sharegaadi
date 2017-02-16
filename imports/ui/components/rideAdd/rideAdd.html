@@ -36,7 +36,7 @@
           <label for="test7">mobile and email</label>
           </p>
         </div>
-        <br>
+        
         <div class="input-field" ng-if="rideAdd.contactType!='mobile'">
           <input required placeholder="" id="email" type="email" class="validate" ng-model="rideAdd.ride.contact.email">
           <label for="email">Email</label>
@@ -45,12 +45,13 @@
           <input required placeholder="" id="phone" type="tel" class="validate active" ng-model="rideAdd.ride.contact.mobile">
           <label for="phone">Mobile</label>
         </div>
-        <br><br>
-        <div class="chips chips-initial"></div>
+        
+        <label for="tags">Please add any custom tags</label>
+        <div id="tags" class="chips chips-initial"></div>
         <br><br>
         <div>
           <a class="waves-effect waves-light btn" ng-disabled="!rideAdd.isFormValid()"  ng-click="rideAdd.submit()" >Add Ride!</a>
-          <a class="waves-effect waves-light btn" ui-sref="rides" style="background: #795548">Back</a>
+          <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
         </div>
       </div>
     </form>

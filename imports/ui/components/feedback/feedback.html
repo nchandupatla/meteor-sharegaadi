@@ -1,0 +1,35 @@
+<br><br>
+<div class="row">
+    <h5 class="center">Help Us To Improve</h5>
+    <form class="col s12 m6 l6  offset-m3 offset-l3" name="myForm" novalidate>
+        <div class="row">
+        </div>
+        <div class="input-field">
+            <label>Feedback Type</label><br>
+            <p>
+                <input class="with-gap" value="Comments" name="group3" type="radio" id="test5" ng-model="feedback.form.type" />
+                <label for="test5">Comments</label>
+                <input class="with-gap " value="Bug Reports" name="group3" type="radio" id="test6" ng-model="feedback.form.type" />
+                <label for="test6">Bug Reports</label>
+                <input class="with-gap" value="Improvements" name="group3" type="radio" id="test7" ng-model="feedback.form.type" checked />
+                <label for="test7">Improvements</label>
+            </p>
+        </div>
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" ng-model="feedback.form.text"></textarea>
+            <label for="textarea1">Describe Feedback</label>
+        </div>
+        <div class="input-field col s12">
+          <input id="first_name" type="text" class="validate" ng-model="feedback.form.name">
+          <label for="first_name"> Name</label>
+        </div>
+       <br><br>
+        <div>
+           
+          <a class="waves-effect waves-light btn"  ng-click="feedback.submit()" >Submit</a>
+          <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
+        </div>
+</div>
+</form>
+</div>
+<br><br>
