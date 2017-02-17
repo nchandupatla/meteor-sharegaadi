@@ -46,10 +46,17 @@
           <label for="phone">Mobile</label>
         </div>
         
-        <label for="tags">Please add any custom tags</label>
+        <label for="tags">Please add any custom tags and hit enter</label>
         <div id="tags" class="chips chips-initial"></div>
-        <br><br>
+         <a ng-click="rideAdd.showNotes=true" ng-hide="rideAdd.showNotes==true">Add Additional Notes</a>
+         <a ng-click="rideAdd.showNotes=false" ng-show="rideAdd.showNotes==true">Hide Additional Notes</a>
+         <div class="input-field" ng-show="rideAdd.showNotes==true">
+            <textarea id="textarea1" class="materialize-textarea" ng-model="rideAdd.ride.description"></textarea>
+            <label for="textarea1">Additional Notes</label>
+        </div>
+        <br>
         <div>
+          <br>
           <a class="waves-effect waves-light btn" ng-disabled="!rideAdd.isFormValid()"  ng-click="rideAdd.submit()" >Add Ride!</a>
           <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
         </div>
@@ -60,7 +67,9 @@
  <!-- Modal Structure -->
   <div id="successPostModal" class="modal">
     <div class="modal-content">
-      <h4>You have successfully submitted your post</h4>
+      <h4>You have successfully submitted your post. </h4>
+      <p>Notes: 1. This post will be automatically deleted day after your start date</p>
+      <p>&nbsp;&nbsp;&nbsp;2. You can update or delete your post using 'Manage Rides' option</p>
       <br><br>
       <a ui-sref="rides" class="waves-effect waves-light btn center" ng-click="rideAdd.closeHowItWorksModal()" >Ok</a>
     </div>

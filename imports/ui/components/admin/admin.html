@@ -12,7 +12,7 @@
         <b class="center">FEEDBACK</b>
  <ul class="collection" ng-repeat="feedback in admin.feedbacks">
       <li class="collection-item">
-      <p><b>Type:</b> {{feedback.type}} <b> by</b> {{feedback.name}}<b> on</b> {{feedback.date}}</p>
+      <p><b>Type:</b> {{feedback.type}} <b> by</b> {{feedback.name}}<b> on</b> {{feedback.date |date :'medium'}}</p>
       <p>{{feedback.text}}</p>
       </li>
 </ul>

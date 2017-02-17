@@ -1,40 +1,33 @@
 <div class="row">
-<div class="col l6 offset-l3 col m6 offset-m3 col s12  ">
-<form>
-  
-  <h4>{{rideDetails.ride.fromLocation.replace(', United States', '')}} to {{rideDetails.ride.toLocation.replace(', United States', '')}}</h4>
-  <p> <b>Starting on:</b> {{rideDetails.ride.date | date:'fullDate'}}</p>
-  <p> <b>Approx. Start Time:</b> {{rideDetails.ride.time | date:'shortTime'}}</p>
-  <p><b>Price:</b> {{rideDetails.ride.price | currency:"$":0}}</p>
-  
-  <p> <b>Contact Name:</b> {{rideDetails.getUser(rideDetails.ride.owner) | displayNameFilter}} </p>
-  <p ng-show="rideDetails.ride.contact.email"> <b>Email:</b> 
-  <a href="mailto:"+{{rideDetails.ride.contact.email}} >{{rideDetails.ride.contact.email}} </a>
-   </p>
-  <p ng-show="rideDetails.ride.contact.mobile"> <b>Phone:</b> 
-  <a href="tel:+1"+{{rideDetails.ride.contact.mobile}}>{{rideDetails.ride.contact.mobile}}</a></p>
-
-  <p>  <div class="chip" ng-repeat="tag in rideDetails.ride.tags">
-    {{tag.tag}}
-  </div></p>
-  <p ng-show="rideDetails.ride.description"> Addtional notes: {{rideDetails.ride.description}}</p>
-</form>
-
-<br>
-<a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
-
+  <div class="col l6 offset-l3 col m6 offset-m3 col s12  ">
+    <form>
+      <h4>{{rideDetails.ride.fromLocation.replace(', United States', '')}} to {{rideDetails.ride.toLocation.replace(', United
+        States', '')}}</h4>
+      <p> <b>Starting on:</b> {{rideDetails.ride.date | date:'fullDate'}}</p>
+      <p> <b>Approx. Start Time:</b> {{rideDetails.ride.time | date:'shortTime'}}</p>
+      <p> <b>Price:</b> {{rideDetails.ride.price | currency:"$":0}}</p>
+      <p> <b>Contact Name:</b> {{rideDetails.getUser(rideDetails.ride.owner) | displayNameFilter}} </p>
+      <p ng-show="rideDetails.ride.contact.email"> <b>Email:</b>
+        <a href="mailto:" +{{rideDetails.ride.contact.email}}>{{rideDetails.ride.contact.email}} </a>
+      </p>
+      <p ng-show="rideDetails.ride.contact.mobile"> <b>Phone:</b>
+        <a href="tel:+1" +{{rideDetails.ride.contact.mobile}}>{{rideDetails.ride.contact.mobile}}</a></p>
+      <p ng-show="rideDetails.ride.description"> <b>Addtional notes:</b> {{rideDetails.ride.description}}</p>
+      <p>
+        <div class="chip" ng-repeat="tag in rideDetails.ride.tags">
+          {{tag.tag}}
+        </div>
+      </p>
+    </form>
+    <br>
+    <a class="waves-effect waves-light btn" ui-sref="rides">Back</a>
+  </div>
 </div>
+<div class="container">
+  <div style="height:500px">
+    <ng-map>
+      <directions draggable="false" origin="{{rideDetails.ride.fromLocation}}" destination="{{rideDetails.ride.toLocation}}">
+      </directions>
+    </ng-map>
+  </div>
 </div>
-
-  <div class="container">
-      <div style="height:500px">
-        <ng-map>
-          <directions
-            draggable="false"
-            origin="{{rideDetails.ride.fromLocation}}"
-            destination="{{rideDetails.ride.toLocation}}">
-          </directions>
-        </ng-map>
-      </div>
-    </div>
-
