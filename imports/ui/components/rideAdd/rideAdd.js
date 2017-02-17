@@ -14,6 +14,7 @@ class RideAdd {
   constructor($scope, $state, $reactive) {
     this.$state = $state;
     $reactive(this).attach($scope);
+    this.subscribe('users');
 
     this.ride = {};
     this.ride.rules = {};
@@ -43,6 +44,11 @@ class RideAdd {
 
       //console.log('ride details '+JSON.stringify(this.ride))
       Rides.insert(this.ride);
+      //update users table with no of posts
+    //   Meteor.users.update({
+    //   _id: this.ride.owner
+    // },{ $inc: { numberOfPosts: 1 }});
+
       this.reset();
       $('#successPostModal').openModal();
     }

@@ -22,6 +22,9 @@ import {
 import {
   name as Feedback
 } from '../feedback/feedback';
+import {
+  name as Admin
+} from '../admin/admin';
 
 class Sharegaadi {
 
@@ -52,6 +55,15 @@ class Sharegaadi {
       getServiceImageUrl() {
         if (Meteor.user() && Meteor.user().services && Meteor.user().services.facebook)
           return "http://graph.facebook.com/" + Meteor.user().services.facebook.id + "/picture/?type=large";
+      },
+      isAdmin(){
+         if (Meteor.user() && Meteor.user().services 
+         && Meteor.user().services.facebook 
+         && Meteor.user().services.facebook.email==='vittalchandupatla1@gmail.com'){
+           return true;
+         }else{
+           return false;
+         }
       }
 
     })
@@ -112,7 +124,8 @@ export default angular.module(name, [
     RideUpdate,
     'accounts.ui',
     UserLogin,
-    Feedback
+    Feedback,
+    Admin
   ]).component(name, {
     template,
     controllerAs: name,

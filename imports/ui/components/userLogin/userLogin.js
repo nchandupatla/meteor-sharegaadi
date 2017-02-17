@@ -11,6 +11,7 @@ class UserLogin {
     'ngInject';
 
     $reactive(this).attach($scope);
+    this.subscribe('users');
     this.$state = $state;
     if(Meteor.user()){
       this.$state.go('rides');
@@ -27,6 +28,7 @@ class UserLogin {
         console.log(error); //If there is any error, will get error here
       } else {
         console.log(Meteor.user());// If there is successful login, you will get login details here
+        //Meteor.users.update({_id:Meteor.user()._id}, { $set: {numberOfPosts: 0} });
         this.$state.go('rides');
       }
       })

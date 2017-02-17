@@ -1,0 +1,20 @@
+<br>
+<div class="row col s12">
+    <div class="col s6">
+        <b class="center">USERS</b>
+<ul class="collection" ng-repeat="user in admin.users">
+      <li class="collection-item">
+      <p><b>Name:</b> {{user.profile.name}},<b>  No. of Posts: {{users.numberOfPosts}}</b> </p>
+      </li>
+</ul>
+    </div>
+    <div class="col s6">
+        <b class="center">FEEDBACK</b>
+ <ul class="collection" ng-repeat="feedback in admin.feedbacks">
+      <li class="collection-item">
+      <p><b>Type:</b> {{feedback.type}} <b> by</b> {{feedback.name}}<b> on</b> {{feedback.date}}</p>
+      <p>{{feedback.text}}</p>
+      </li>
+</ul>
+    </div>
+</div>
