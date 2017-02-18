@@ -1,10 +1,10 @@
 <br>
 <div class="row col s12">
     <div class="col s6">
-        <b class="center">USERS</b>
-<ul class="collection" ng-repeat="user in admin.users">
+        <b class="center">USER POSTS </b>
+<ul class="collection" ng-repeat="user in admin.users | orderBy: user.date">
       <li class="collection-item">
-      <p><b>Name:</b> {{user.profile.name}},<b>  No. of Posts: {{users.numberOfPosts}}</b> </p>
+      <p>{{user.name }} posted on  {{user.date | date:'short'}} </p>
       </li>
 </ul>
     </div>

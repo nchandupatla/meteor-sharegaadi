@@ -9,12 +9,16 @@ import template from './rideAdd.html';
 import {
   Rides
 } from '../../../api/rides';
+import {
+  UserPost
+} from '../../../api/userPosts';
 
 class RideAdd {
   constructor($scope, $state, $reactive) {
     this.$state = $state;
     $reactive(this).attach($scope);
     this.subscribe('users');
+    this.subscribe('userpost');
 
     this.ride = {};
     this.ride.rules = {};
@@ -44,11 +48,13 @@ class RideAdd {
       //console.log('ride details '+JSON.stringify(this.ride))
       this.ride.date = new Date(this.ride.date);
       Rides.insert(this.ride);
-      //update users table with no of posts
-    //   Meteor.users.update({
-    //   _id: this.ride.owner
-    // },{ $inc: { numberOfPosts: 1 }});
-
+      var userpost={};
+      if(Meteor.user().services.facebook){
+      userpost.email =Meteor.user().services.facebook.email;
+      userpost.name = Meteor.user().services.facebook.name;
+      userpost.date = new Date();
+      UserPost.insert(userpost);
+      }
       this.reset();
       $('#successPostModal').openModal();
     }

@@ -7,6 +7,9 @@ import template from './admin.html';
 import {
   Feedback
 } from '../../../api/feedback';
+import {
+  UserPost
+} from '../../../api/userPosts';
 
 
 class Admin {
@@ -14,13 +17,13 @@ class Admin {
     this.$state = $state;
     $reactive(this).attach($scope);
     this.subscribe('feedbacks');
-    this.subscribe('users');
+    this.subscribe('userpost');
     this.helpers({
       feedbacks() {
         return Feedback.find({});
       },
       users() {
-        return Meteor.users.find({});
+        return UserPost.find({});
       }
       });
   }
