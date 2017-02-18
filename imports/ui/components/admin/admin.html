@@ -12,7 +12,11 @@
         <b class="center">FEEDBACK</b>
  <ul class="collection" ng-repeat="feedback in admin.feedbacks">
       <li class="collection-item">
-      <p><b>Type:</b> {{feedback.type}} <b> by</b> {{feedback.name}}<b> on</b> {{feedback.date |date :'medium'}}</p>
+      <p><b>Type:</b> {{feedback.type}} <b> by</b> {{feedback.name}}<b> on</b> {{feedback.date |date :'medium'}}
+      <a  ng-click="admin.deleteFeedback(feedback._id)">
+                    <b>DELETE</b>
+                    </a>
+      </p>
       <p>{{feedback.text}}</p>
       </li>
 </ul>

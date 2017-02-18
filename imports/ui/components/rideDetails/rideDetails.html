@@ -8,10 +8,10 @@
       <p> <b>Price:</b> {{rideDetails.ride.price | currency:"$":0}}</p>
       <p> <b>Contact Name:</b> {{rideDetails.getUser(rideDetails.ride.owner) | displayNameFilter}} </p>
       <p ng-show="rideDetails.ride.contact.email"> <b>Email:</b>
-        <a href="mailto:" +{{rideDetails.ride.contact.email}}>{{rideDetails.ride.contact.email}} </a>
+        <a href="mailto:"{{rideDetails.ride.contact.email}}>{{rideDetails.ride.contact.email}} </a>
       </p>
       <p ng-show="rideDetails.ride.contact.mobile"> <b>Phone:</b>
-        <a href="tel:+1" +{{rideDetails.ride.contact.mobile}}>{{rideDetails.ride.contact.mobile}}</a></p>
+        <a href="tel:+1"{{rideDetails.ride.contact.mobile}}>{{rideDetails.ride.contact.mobile}}</a></p>
       <p ng-show="rideDetails.ride.description"> <b>Addtional notes:</b> {{rideDetails.ride.description}}</p>
       <p>
         <div class="chip" ng-repeat="tag in rideDetails.ride.tags">

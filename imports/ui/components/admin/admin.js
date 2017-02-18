@@ -24,6 +24,17 @@ class Admin {
       }
       });
   }
+
+   deleteFeedback(id){
+    Feedback.remove({_id:id}, (error) => {
+      if (error) {
+        Materialize.toast('Not Succesful in deleting  Feedback. Please try again.', 2000) ;
+      } else {
+        Materialize.toast('Successfully Deleted  Feedback', 2000) ;
+      }
+    });
+    
+  }
 }
 
 const name = 'admin';
