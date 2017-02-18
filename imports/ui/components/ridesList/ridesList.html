@@ -17,7 +17,6 @@
         </span>
       </div>
     </li>
-    
     <li>
       <img src="img/traveller.jpg">
       <div class="caption center-align">
@@ -62,7 +61,8 @@
         <li class="collection-item avatar card-panel grey lighten-3">
           <img src="{{ridesList.getServiceImageUrl(ride.owner)}}" alt="" class="circle">
           <a ui-sref="rideDetails({ rideId: ride._id })">
-            <h6 class="brown-text text-darken-2" style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to {{ride.toLocation.replace(', United States', '')}}</h6>
+            <h6 class="brown-text text-darken-2" style="font-size: 125%">{{ride.fromLocation.replace(', United States', '')}} to 
+              <br> {{ride.toLocation.replace(', United States', '')}}</h6>
           </a>
           <span class="row s12">
             <span>
@@ -70,11 +70,14 @@
               <i class="material-icons md-12 left brown-text" style="margin-right: 5px;line-height: 1.6">date_range</i> 
               <span class="brown-text text-darken-2">
               {{ride.date | date:'d MMM yy'}}
-              </span><br>
+               </span>
+          <i class="material-icons md-12 brown-text hide-on-small-only">access_time</i>
+          <span class="brown-text text-darken-2 hide-on-small-only">{{ride.time | date:'shortTime'}}</span>
+          <!--</span><br>
           <span class="col s10" style="margin-left: -22px">
           <i class="material-icons md-12 brown-text" style="margin-left: -8px">access_time</i>
           <span class="brown-text text-darken-2">{{ride.time | date:'shortTime'}}</span>
-          </span>
+          </span>-->
           </span>
           <span class="col s2 " style="margin-right: 10px">
               <a class="brown-text text-darken-2 bold" style="font-size: 120%"><b>{{ride.price | currency:"$":0 }}</b></a>
@@ -82,7 +85,7 @@
           </span>
           </span>
           <h6 class="left brown-text text-darken-2" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
-          <br><br>
+          <br>
         </li>
       </ul>
     </div>
