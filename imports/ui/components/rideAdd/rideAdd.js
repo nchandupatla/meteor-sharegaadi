@@ -41,8 +41,8 @@ class RideAdd {
       this.ride.public = true;
       this.ride.date = new Date(this.ride.date);
       this.ride.tags = $('.chips-initial').material_chip('data');
-
       //console.log('ride details '+JSON.stringify(this.ride))
+      this.ride.date = new Date(this.ride.date);
       Rides.insert(this.ride);
       //update users table with no of posts
     //   Meteor.users.update({

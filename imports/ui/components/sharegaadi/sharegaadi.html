@@ -11,15 +11,13 @@
     </div>
   </div>
 </div>
-
 <div id="signOutModal" class="modal">
   <div class="modal-content">
     <h4 class="center" style="font-style: italic;" ng-hide="sharegaadi.isPosting"> Successfully logged out </h4>
     <h5 class="center">Thank you for using Vimaana Rideshare</h5>
-    <p class="text-center">Please submit the feedback form to help us improve the application.</p>
+    <h6 class="center">Please submit the feedback form to help us improve the application.</h6>
   </div>
 </div>
-
 <ul id="dropdown1" class="dropdown-content">
   <li ng-show="sharegaadi.isLoggedIn"><a ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn">Logout</a></li>
 </ul>
@@ -32,7 +30,7 @@
   <div class="nav-wrapper white">
     <!--<img src="img/vimaana_logo.png" style="height: 35px; width: 50px">-->
     <a href="/" class="brand-logo">
-     <!--<i class="fa fa-vimeo fa-lg brown" aria-hidden="true"></i>-->
+      <!--<i class="fa fa-vimeo fa-lg brown" aria-hidden="true"></i>-->
       <!--<i class="material-icons md-48  hide-on-med-and-down">directions_car</i>-->
       <b class="brown-text text-darken-2" style="font-style: italic;">Vimaana</b>
       <span class="light orange-text text-darken-3">Rides</span>
@@ -44,7 +42,7 @@
       <li ng-hide="sharegaadi.isLoggedIn">
         <a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(false);"><b>POST A TRIP</b></a>
       </li>
-       <li ng-show="sharegaadi.isLoggedIn">
+      <li ng-show="sharegaadi.isLoggedIn">
         <a class="brown-text text-darken-2" ui-sref="addRide"><b>POST A TRIP</b></a>
       </li>
       <li ng-hide="sharegaadi.isLoggedIn">
@@ -59,7 +57,7 @@
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li ng-show="sharegaadi.isLoggedIn">
-       <a> {{ sharegaadi.currentUser | displayNameFilter }}</a>
+        <a> {{ sharegaadi.currentUser | displayNameFilter }}</a>
       </li>
       <li><a class="brown-text text-darken-2" ui-sref="rides"><b>HOME</a></li>
       <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(true)"><b>SIGN IN</b></a></li>
@@ -68,30 +66,45 @@
       <li ng-hide="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.openSignInModal(false)"><b>POST A TRIP</b></a></li>
       <!--<li><a class="brown-text text-darken-2" ng-click="sharegaadi.openHowItWorksModal()"><b>How it works</b></a></li>-->
       <li ng-show="sharegaadi.isLoggedIn"><a class="brown-text text-darken-2" ng-click="sharegaadi.logout()" ng-show="sharegaadi.isLoggedIn" style="color: #795548"><b>LOGOUT</b></a></li>
-     <li><a class="brown-text text-darken-2" ui-sref="feedback">FEEDBACK?</a></li>
-     </ul>
+      <li><a class="brown-text text-darken-2" ui-sref="feedback">FEEDBACK?</a></li>
+    </ul>
   </div>
 </nav>
 <div>
   <div ui-view=""></div>
 </div>
-<footer class="page-footer white">
-          <div class="container">
-          
-          </div>
-          <div class="footer-copyright brown">
-            <div class="container">
-            © 2017 Copyrights Team Vimaana
-            <a class="grey-text text-lighten-4 right" ui-sref="feedback">Feedback?</a>
-            </div>
-          </div>
-        </footer>
+<footer class="page-footer brown lighten-2">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text text-darken-2"><b>Vimaana Rideshare</b></h5>
+        <p class="white-text text-darken-2">
+         Share rides desi style. Travel with the people who love the same music, speak same language and share similar interests.
+          </p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <ul>
+          <li ng-hide="sharegaadi.isLoggedIn"><a class="white-text text-darken-2" ng-click="sharegaadi.openSignInModal(true)">Login</a></li>
+          <li ng-hide="sharegaadi.isLoggedIn"><a class="white-text text-darken-2" ng-click="sharegaadi.openSignInModal(false)">Post A Trip</a></li>
+          <li ng-show="sharegaadi.isLoggedIn"><a class="white-text text-darken-2" ui-sref="addRide">Post A Trip</a></li>
+          <li><a class="white-text text-darken-2" ui-sref="feedback">Feedback?</a></li>
+          <li><a class="white-text text-darken-2" ui-sref="feedback">Help Us To Improve</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="footer-copyright white">
+    <div class="container">
+      <span class="brown-text text-darken-2 center"> © 2017 Copyrights Team Vimaana </span>
+    </div>
+  </div>
+</footer>
 <div class="fixed-action-btn" ng-show="sharegaadi.isLoggedIn">
   <a class="btn-floating btn-large orange darken-3" ui-sref="addRide">
     <i class="large material-icons">add</i>
   </a>
 </div>
-
 <script>
   $(document).ready(function () {
     $(".button-collapse").sideNav({

@@ -29,7 +29,7 @@ class UserLogin {
       } else {
         console.log(Meteor.user());// If there is successful login, you will get login details here
         //Meteor.users.update({_id:Meteor.user()._id}, { $set: {numberOfPosts: 0} });
-        this.$state.go('rides');
+        this.$state.go('rideAdd');
       }
       })
     );
