@@ -19,7 +19,7 @@ class RidesList {
     'ngInject';
 
     $reactive(this).attach($scope);
-    this.perPage = 12;
+    this.perPage = 9;
     this.page = 1;
     this.sort = {
       fromLocation: 1
