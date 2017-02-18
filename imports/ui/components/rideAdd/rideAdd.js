@@ -71,11 +71,11 @@ class RideAdd {
   isContactValid() {
     var phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
     if(this.contactType == 'both' && this.ride.contact && this.ride.contact.mobile 
-            && this.ride.contact.email && this.ride.contact.mobile.match(phoneRegex)) {
+            && this.ride.contact.email) {
       return true;
     }
     if(this.contactType == 'mobile' && this.ride.contact 
-           && this.ride.contact.mobile && this.ride.contact.mobile.match(phoneRegex)) {
+           && this.ride.contact.mobile) {
       return true;
     }
     if(this.contactType == 'email' && this.ride.contact && this.ride.contact.email) {
