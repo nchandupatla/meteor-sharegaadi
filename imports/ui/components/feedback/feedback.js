@@ -21,7 +21,7 @@ class FeedbackForm {
       this.form.date=new Date();
       Feedback.insert(this.form);
       this.form={};
-      Materialize.toast('Thank you for the feedback', 8000);
+      Materialize.toast('Thank you for the feedback', 4000);
   }
 
 

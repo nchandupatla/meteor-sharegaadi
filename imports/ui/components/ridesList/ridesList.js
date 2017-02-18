@@ -12,6 +12,7 @@ import { name as RidesSort } from '../ridesSort/ridesSort';
 import { name as RidesMap } from '../ridesMap/ridesMap';
 import { name as RideAdd } from '../rideAdd/rideAdd';
 import { name as RideCreator } from '../rideCreator/rideCreator';
+import { name as displayNameFilterForCards } from '../../filters/displayNameFilterForCards';
 
 class RidesList {
   
@@ -102,6 +103,7 @@ export default angular.module(name, [
   RidesMap,
   RideAdd,
   RideCreator,
+  displayNameFilterForCards,
   'ngMap'
 ]).component(name, {
   template,

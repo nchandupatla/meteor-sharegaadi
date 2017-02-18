@@ -22,7 +22,7 @@
       <div class="caption center-align">
         <!--<h3><b>Welcome to Vimaana</b></h3>-->
         <h5>
-          <b>Let's travel together, make new friends and split your fare</b>
+          <b>Let's travel together, make new friends and split the fare</b>
         </h5>
         <br><br>
         <span class="row col s12">
@@ -73,18 +73,13 @@
                </span>
           <i class="material-icons md-12 brown-text hide-on-small-only">access_time</i>
           <span class="brown-text text-darken-2 hide-on-small-only">{{ride.time | date:'shortTime'}}</span>
-          <!--</span><br>
-          <span class="col s10" style="margin-left: -22px">
-          <i class="material-icons md-12 brown-text" style="margin-left: -8px">access_time</i>
-          <span class="brown-text text-darken-2">{{ride.time | date:'shortTime'}}</span>
-          </span>-->
           </span>
           <span class="col s2 " style="margin-right: 10px">
               <a class="brown-text text-darken-2 bold" style="font-size: 120%"><b>{{ride.price | currency:"$":0 }}</b></a>
                </span>
           </span>
           </span>
-          <h6 class="left brown-text text-darken-2" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilter}}</h6>
+          <h6 class="left brown-text text-darken-2" style="font-size: 80%">Posted by: {{ridesList.getUser(ride.owner) | displayNameFilterForCards}}</h6>
           <br>
         </li>
       </ul>
@@ -99,8 +94,8 @@
 <br>
 <div class="container">
   <div ng-hide="ridesList.noRides()">
-    <ng-map>
-      <directions ng-repeat="ride in ridesList.rides" draggable="false" , origin="{{ride.fromLocation}}" destination="{{ride.toLocation}}">
+    <ng-map scrollwheel="false">
+      <directions ng-repeat="ride in ridesList.rides"  origin="{{ride.fromLocation}}" destination="{{ride.toLocation}}">
       </directions>
     </ng-map>
   </div>
