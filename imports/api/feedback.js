@@ -5,14 +5,14 @@ import {
 
 export const Feedback = new Mongo.Collection('feedback');
 Feedback.allow({
-  insert(userId, feedback) {
-    return userId;
+  insert(feedback) {
+    return true;
   },
-  update(userId, feedback, fields, modifier) {
-    return userId;
+  update(feedback, fields, modifier) {
+    return true;
   },
-  remove(userId, feedback) {
-    return userId;
+  remove(feedback) {
+    return true;
   }
 })
 
